@@ -1,5 +1,15 @@
 <?php
-$base = '/wavicle_v5';
+$envFile = __DIR__ . '/../.env';
+if (file_exists($envFile)) {
+    foreach (file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $line) {
+        if (str_contains($line, '=') && $line[0] !== '#') {
+            [$k, $v] = explode('=', $line, 2);
+            $_ENV[trim($k)] = trim($v);
+        }
+    }
+}
+$base = $_ENV['SITE_BASE'] ?? '';
+#$base = 'https://wavicle.canvinfoods.com';
 $siteName       = 'Wavicle';
 $logoPath       = $base . '/assets/images/WAVICLE POOLS LOGO.png';
 $logoDark       = $base . '/assets/images/wavicle_white.png';

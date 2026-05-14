@@ -1,4 +1,4 @@
-<?php if(!isset($base)) $base = "/wavicle_v5"; ?>
+<?php if (!isset($base)) $base = "/wavicle_v5"; ?>
 <?php require __DIR__ . '/site.php'; ?>
 
 <?php
@@ -68,7 +68,7 @@ $footerBlogs = $pdo->query(
                             onmouseover="this.style.background='#e1306c';" onmouseout="this.style.background='rgba(255,255,255,.1)';">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://wa.me/919812555555" target="_blank"
+                        <a href="https://wa.me/919560838375" target="_blank"
                             style="width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; color:#fff; font-size:14px; transition:background .2s; text-decoration:none;"
                             onmouseover="this.style.background='#25d366';" onmouseout="this.style.background='rgba(255,255,255,.1)';">
                             <i class="fab fa-whatsapp"></i>
@@ -202,10 +202,10 @@ $footerBlogs = $pdo->query(
                             </div>
                             <div>
                                 <div style="color:rgba(255,255,255,.45); font-size:10px; text-transform:uppercase; letter-spacing:1px; margin-bottom:3px;">WhatsApp</div>
-                                <a href="https://wa.me/919812555555" target="_blank"
+                                <a href="https://wa.me/919560838375" target="_blank"
                                     style="color:rgba(255,255,255,.85); font-size:13px; font-weight:600; text-decoration:none; font-family:'Montserrat',sans-serif;"
                                     onmouseover="this.style.color='#25d366';" onmouseout="this.style.color='rgba(255,255,255,.85)';">
-                                    +91 98125 55555
+                                    +91 95608 38375
                                 </a>
                             </div>
                         </li>
@@ -263,7 +263,24 @@ $footerBlogs = $pdo->query(
             }
         }
     </style>
-
+    <!-- Fixed Floating Buttons -->
+    <div style="position:fixed;bottom:30px;right:20px;z-index:9999;display:flex;flex-direction:column;align-items:center;gap:10px;">
+        <a href="https://wa.me/919560838375" target="_blank" rel="noopener"
+            style="width:50px;height:50px;display:flex;align-items:center;justify-content:center;transition:transform .2s;"
+            onmouseover="this.style.transform='scale(1.12)';" onmouseout="this.style.transform='scale(1)';">
+            <img src="<?php echo $base; ?>/assets/images/WhatsApp_icon.png" alt="WhatsApp" style="width:50px;height:50px;object-fit:contain;" />
+        </a>
+        <a href="tel:9560838375"
+            style="width:50px;height:50px;display:flex;align-items:center;justify-content:center;transition:transform .2s;"
+            onmouseover="this.style.transform='scale(1.12)';" onmouseout="this.style.transform='scale(1)';">
+            <img src="<?php echo $base; ?>/assets/images/phn.png" alt="Call" style="width:50px;height:50px;object-fit:contain;" />
+        </a>
+        <a href="#" data-target="html" class="scroll-to-target"
+            style="width:40px;height:40px;background:#0e3c7d;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;text-decoration:none;transition:transform .2s,background .2s;"
+            onmouseover="this.style.background='#59b5e8';this.style.transform='scale(1.12)';" onmouseout="this.style.background='#0e3c7d';this.style.transform='scale(1)';">
+            <i class="fa fa-angle-up"></i>
+        </a>
+    </div>
 </footer><!-- /.site-footer-one -->
 
 </div><!-- /.page-wrapper -->
@@ -287,13 +304,12 @@ $footerBlogs = $pdo->query(
             <a href="<?php echo $social['facebook']; ?>"><i class="fab fa-facebook-f"></i></a>
             <a href="<?php echo $social['twitter']; ?>"><i class="fab fa-youtube"></i></a>
             <a href="<?php echo $social['instagram']; ?>"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/919812555555" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://wa.me/919560838375" target="_blank"><i class="fab fa-whatsapp"></i></a>
         </div>
     </div>
 </div><!-- /.side-menu__block -->
 
-<!-- Scroll To Top -->
-<a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
+
 
 <!-- Template JS -->
 <script src="<?php echo $base; ?>/assets/js/jquery.min.js"></script>
