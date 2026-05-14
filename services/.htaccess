@@ -1,0 +1,3 @@
+Options -Indexes
+RewriteEngine On
+RewriteRule ^(.*)$ /wavicle_v5/catalog-category.php?slug=$1 [L,QSA]
