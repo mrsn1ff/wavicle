@@ -36,7 +36,7 @@
 
     <!-- Font Override: apply Montserrat to all headings, Avant Garde to body text -->
     <style>
-        /* Body / paragraph text → ITC Avant Garde Gothic */
+        
         body,
         p,
         li,

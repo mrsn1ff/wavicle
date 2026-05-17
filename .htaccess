@@ -7,15 +7,18 @@ RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
 # Products
-RewriteRule ^products/([^/]+)/([^/]+)/?$ /wavicle_v5/catalog-item.php?cat=$1&slug=$2 [L,QSA]
-RewriteRule ^products/([^/]+)/?$ /wavicle_v5/catalog-category.php?slug=$1 [L,QSA]
-RewriteRule ^products/?$ /wavicle_v5/courses.php [L,QSA]
+RewriteRule ^products/([^/]+)/([^/]+)/?$ catalog-item.php?cat=$1&slug=$2 [L,QSA]
+RewriteRule ^products/([^/]+)/?$ catalog-category.php?slug=$1 [L,QSA]
+RewriteRule ^products/?$ courses.php [L,QSA]
 
 # Services
-RewriteRule ^services/([^/]+)/([^/]+)/?$ /wavicle_v5/catalog-item.php?cat=$1&slug=$2 [L,QSA]
-RewriteRule ^services/([^/]+)/?$ /wavicle_v5/catalog-category.php?slug=$1 [L,QSA]
-RewriteRule ^services/?$ /wavicle_v5/index.php [L,QSA]
+RewriteRule ^services/([^/]+)/([^/]+)/?$ catalog-item.php?cat=$1&slug=$2 [L,QSA]
+RewriteRule ^services/([^/]+)/?$ catalog-category.php?slug=$1 [L,QSA]
+RewriteRule ^services/?$ index.php [L,QSA]
 
 # News
-RewriteRule ^news/([^/]+)/?$ /wavicle_v5/news-detail.php?slug=$1 [L,QSA]
-RewriteRule ^news/?$ /wavicle_v5/news.php [L,QSA]
+RewriteRule ^news/([^/]+)/?$ news-detail.php?slug=$1 [L,QSA]
+RewriteRule ^news/?$ news.php [L,QSA]
+
+php_value upload_max_filesize 10M
+php_value post_max_size 10M

@@ -55,7 +55,7 @@ include __DIR__ . '/../includes/header.php';
 <div class="wv-card">
     <div class="wv-card__header"><span class="wv-card__title">Edit: <?php echo e($offering['title']); ?></span></div>
     <div class="wv-card__body">
-        <form method="POST" enctype="multipart/form-data">
+        <form method="POST" enctype="multipart/form-data" onsubmit="syncCK()">
             <div class="wv-form-group">
                 <label class="wv-label">Title <span class="wv-required">*</span></label>
                 <input type="text" name="title" class="wv-input" value="<?php echo e($data['title']); ?>" required />

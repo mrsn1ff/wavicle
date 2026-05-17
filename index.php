@@ -1,4 +1,15 @@
-<?php $base = '/wavicle_v5'; ?>
+<?php
+$envFile = __DIR__ . '/.env';
+if (file_exists($envFile)) {
+    foreach (file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $line) {
+        if (str_contains($line, '=') && $line[0] !== '#') {
+            [$k, $v] = explode('=', $line, 2);
+            $_ENV[trim($k)] = trim($v);
+        }
+    }
+}
+$base = rtrim($_ENV['SITE_BASE'] ?? '/wavicle', '/');
+?>
 <?php
 $pageTitle  = 'Swimming Pool Equipment Manufacturer & Suppliers';
 $activePage = 'home';
@@ -60,7 +71,7 @@ include __DIR__ . '/includes/header.php';
 <!-- Services — dynamic from database -->
 <?php
 require_once __DIR__ . '/admin/includes/db.php';
-$base = '/wavicle_v5';
+
 // Service categories from catalog
 $dbServiceCats = $pdo->query("SELECT * FROM catalog_categories WHERE type='service' AND status=1 ORDER BY sort_order ASC, id ASC")->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -161,48 +172,48 @@ $homepageProducts = $pdo->query(
 )->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <div class="course-one course-one__carousel-wrapper">
-    <img src="<?php echo $base;?>/assets/images/shapes/fish-1-1.png" alt="" class="site-footer__fish-1" />
-    <img src="<?php echo $base;?>/assets/images/shapes/tree-1-1.png" class="site-footer__tree-1" alt="" />
+    <img src="<?php echo $base; ?>/assets/images/shapes/fish-1-1.png" alt="" class="site-footer__fish-1" />
+    <img src="<?php echo $base; ?>/assets/images/shapes/tree-1-1.png" class="site-footer__tree-1" alt="" />
     <div class="container">
-        <?php if(!empty($homepageProducts)): ?>
-        <div class="course-one__carousel thm__owl-carousel owl-carousel owl-theme"
-            data-options='{"loop": true,"items": 3, "margin":30, "smartSpeed": 700, "autoplay": true, "autoplayTimeout": 5000, "autoplayHoverPause": true, "nav": false, "dots": false, "responsive": { "0": {"items": 1}, "767": {"items": 2}, "991": {"items": 2}, "1199": { "items": 3} }}'
-            data-carousel-prev-btn=".course-one__carousel-btn-left"
-            data-carousel-next-btn=".course-one__carousel-btn-right">
-            <?php foreach($homepageProducts as $p):
-                $imgSrc    = !empty($p['main_image']) ? htmlspecialchars($p['main_image'],ENT_QUOTES,'UTF-8') : $base.'/assets/images/courses/course-1-1.jpg';
-                $detailUrl = $base.'/products/'.urlencode($p['cat_slug']).'/'.urlencode($p['slug']);
-            ?>
-            <div class="item">
-                <div class="course-one__single">
-                    <div class="course-one__image">
-                        <a href="<?php echo $detailUrl;?>" class="course-one__cat"><?php echo htmlspecialchars($p['cat_name'],ENT_QUOTES,'UTF-8');?></a>
-                        <div class="course-one__image-inner">
-                            <img src="<?php echo $imgSrc;?>" alt="<?php echo htmlspecialchars($p['title'],ENT_QUOTES,'UTF-8');?>"
-                                 onerror="this.onerror=null;this.src='<?php echo $base;?>/assets/images/courses/course-1-1.jpg'" />
-                            <a href="<?php echo $detailUrl;?>"><i class="scubo-icon-plus-symbol"></i></a>
+        <?php if (!empty($homepageProducts)): ?>
+            <div class="course-one__carousel thm__owl-carousel owl-carousel owl-theme"
+                data-options='{"loop": true,"items": 3, "margin":30, "smartSpeed": 700, "autoplay": true, "autoplayTimeout": 5000, "autoplayHoverPause": true, "nav": false, "dots": false, "responsive": { "0": {"items": 1}, "767": {"items": 2}, "991": {"items": 2}, "1199": { "items": 3} }}'
+                data-carousel-prev-btn=".course-one__carousel-btn-left"
+                data-carousel-next-btn=".course-one__carousel-btn-right">
+                <?php foreach ($homepageProducts as $p):
+                    $imgSrc    = !empty($p['main_image']) ? htmlspecialchars($p['main_image'], ENT_QUOTES, 'UTF-8') : $base . '/assets/images/courses/course-1-1.jpg';
+                    $detailUrl = $base . '/products/' . urlencode($p['cat_slug']) . '/' . urlencode($p['slug']);
+                ?>
+                    <div class="item">
+                        <div class="course-one__single">
+                            <div class="course-one__image">
+                                <a href="<?php echo $detailUrl; ?>" class="course-one__cat"><?php echo htmlspecialchars($p['cat_name'], ENT_QUOTES, 'UTF-8'); ?></a>
+                                <div class="course-one__image-inner">
+                                    <img src="<?php echo $imgSrc; ?>" alt="<?php echo htmlspecialchars($p['title'], ENT_QUOTES, 'UTF-8'); ?>"
+                                        onerror="this.onerror=null;this.src='<?php echo $base; ?>/assets/images/courses/course-1-1.jpg'" />
+                                    <a href="<?php echo $detailUrl; ?>"><i class="scubo-icon-plus-symbol"></i></a>
+                                </div>
+                            </div>
+                            <div class="course-one__content hvr-sweep-to-bottom">
+                                <h3><a href="<?php echo $detailUrl; ?>"><?php echo htmlspecialchars($p['title'], ENT_QUOTES, 'UTF-8'); ?></a></h3>
+                                <p><?php echo htmlspecialchars(substr(strip_tags($p['description'] ?? ''), 0, 80), ENT_QUOTES, 'UTF-8'); ?><?php echo strlen(strip_tags($p['description'] ?? '')) > 80 ? '..' : ''; ?></p>
+                            </div>
+                            <a href="<?php echo $base; ?>/contact.php" class="course-one__book-link">ENQUIRE FOR THIS</a>
                         </div>
                     </div>
-                    <div class="course-one__content hvr-sweep-to-bottom">
-                        <h3><a href="<?php echo $detailUrl;?>"><?php echo htmlspecialchars($p['title'],ENT_QUOTES,'UTF-8');?></a></h3>
-                        <p><?php echo htmlspecialchars(substr(strip_tags($p['description']??''),0,80),ENT_QUOTES,'UTF-8');?><?php echo strlen(strip_tags($p['description']??''))>80?'..':'';?></p>
-                    </div>
-                    <a href="<?php echo $base;?>/contact.php" class="course-one__book-link">ENQUIRE FOR THIS</a>
-                </div>
+                <?php endforeach; ?>
             </div>
-            <?php endforeach;?>
-        </div>
-        <div class="course-one__carousel-btn__wrapper">
-            <a class="course-one__carousel-btn-left" href="#"><i class="fa fa-angle-left"></i></a>
-            <a class="course-one__carousel-btn-right" href="#"><i class="fa fa-angle-right"></i></a>
-        </div>
+            <div class="course-one__carousel-btn__wrapper">
+                <a class="course-one__carousel-btn-left" href="#"><i class="fa fa-angle-left"></i></a>
+                <a class="course-one__carousel-btn-right" href="#"><i class="fa fa-angle-right"></i></a>
+            </div>
         <?php else: ?>
-        <div style="text-align:center; padding:60px 0;">
-            <i class="fa fa-box-open" style="font-size:52px; color:#dee2e6; display:block; margin-bottom:16px;"></i>
-            <p style="font-family:'Montserrat',sans-serif; font-size:16px; font-weight:700; color:#6c757d;">No Products Added Yet</p>
-            <p style="color:#adb5bd; font-size:13px;">Products will appear here once added from the admin panel.</p>
-        </div>
-        <?php endif;?>
+            <div style="text-align:center; padding:60px 0;">
+                <i class="fa fa-box-open" style="font-size:52px; color:#dee2e6; display:block; margin-bottom:16px;"></i>
+                <p style="font-family:'Montserrat',sans-serif; font-size:16px; font-weight:700; color:#6c757d;">No Products Added Yet</p>
+                <p style="color:#adb5bd; font-size:13px;">Products will appear here once added from the admin panel.</p>
+            </div>
+        <?php endif; ?>
     </div>
 </div><!-- /.course-one__carousel-wrapper -->
 
@@ -389,51 +400,238 @@ $homepageProducts = $pdo->query(
 </section>
 
 <!-- Blog — Dynamic from DB -->
-<?php $homeBlogs = $pdo->query('SELECT * FROM blogs WHERE status=1 ORDER BY created_at DESC LIMIT 3')->fetchAll(PDO::FETCH_ASSOC); ?>
-<section class="blog-one blog-one__home-one" style="background-image: url(<?php echo $base;?>/assets/images/shapes/about-brand-team-bg.png);">
+<?php $homeBlogs = $pdo->query('SELECT * FROM blogs WHERE status=1 ORDER BY created_at DESC LIMIT 6')->fetchAll(PDO::FETCH_ASSOC); ?>
+<section class="blog-one blog-one__home-one" style="background-image: url(<?php echo $base; ?>/assets/images/shapes/about-brand-team-bg.png);">
     <div class="container">
         <div class="block-title text-center">
-            <img src="<?php echo $base;?>/assets/images/shapes/sec-line-1.png" alt="" />
+            <img src="<?php echo $base; ?>/assets/images/shapes/sec-line-1.png" alt="" />
             <p class="text-uppercase">From the Blog</p>
             <h3 class="text-uppercase">News &amp; Articles</h3>
         </div>
-        <?php if(!empty($homeBlogs)): ?>
-        <div class="row">
-            <?php foreach($homeBlogs as $blog):
-                $bImg = !empty($blog['main_image'])
-                    ? htmlspecialchars($blog['main_image'],ENT_QUOTES,'UTF-8')
-                    : $base.'/assets/images/blog/blog-1-1.jpg';
-                $bUrl = $base.'/news/'.urlencode($blog['slug']);
-                $bDate = date('d M, Y', strtotime($blog['created_at']));
-            ?>
-            <div class="col-lg-4 col-md-12">
-                <div class="blog-one__single">
-                    <div class="blog-one__image">
-                        <a href="<?php echo $bUrl;?>" class="blog-one__date"><?php echo $bDate;?></a>
-                        <div class="blog-one__image-inner">
-                            <img src="<?php echo $bImg;?>" alt="<?php echo htmlspecialchars($blog['title'],ENT_QUOTES,'UTF-8');?>"
-                                 onerror="this.onerror=null;this.src='<?php echo $base;?>/assets/images/blog/blog-1-1.jpg'" />
-                            <a href="<?php echo $bUrl;?>"><i class="scubo-icon-plus-symbol"></i></a>
+        <?php if (!empty($homeBlogs)): ?>
+
+            <style>
+                .blog-home-carousel .item {
+                    padding: 8px;
+                }
+
+                .blog-card {
+                    background: #fff;
+                    border-radius: 12px;
+                    overflow: hidden;
+                    border: 1px solid #e8eef5;
+                    box-shadow: 0 2px 14px rgba(14, 60, 125, .06);
+                    display: flex;
+                    flex-direction: column;
+                    height: 420px;
+                    text-decoration: none;
+                    cursor: pointer;
+                    transition: box-shadow .25s, transform .25s;
+                }
+
+                .blog-card:hover {
+                    box-shadow: 0 8px 28px rgba(14, 60, 125, .14);
+                    transform: translateY(-3px);
+                }
+
+                .blog-card__img {
+                    position: relative;
+                    flex-shrink: 0;
+                    height: 200px;
+                    overflow: hidden;
+                    background: #f0f4fb;
+                }
+
+                .blog-card__img img {
+                    width: 100%;
+                    height: 200px;
+                    object-fit: cover;
+                    display: block;
+                }
+
+                .blog-card__date {
+                    position: absolute;
+                    top: 12px;
+                    left: 12px;
+                    background: #0e3c7d;
+                    color: #fff;
+                    font-size: 10px;
+                    font-weight: 700;
+                    padding: 4px 12px;
+                    border-radius: 3px;
+                    font-family: 'Montserrat', sans-serif;
+                }
+
+                .blog-card__body {
+                    padding: 18px 20px;
+                    display: flex;
+                    flex-direction: column;
+                    flex: 1;
+                    overflow: hidden;
+                }
+
+                .blog-card__title {
+                    font-family: 'Montserrat', sans-serif;
+                    font-size: 14px;
+                    font-weight: 800;
+                    color: #051b35;
+                    line-height: 1.4;
+                    margin-bottom: 8px;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                }
+
+                .blog-card__excerpt {
+                    font-size: 13px;
+                    color: #6c757d;
+                    line-height: 1.65;
+                    flex: 1;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    margin-bottom: 14px;
+                }
+
+                .blog-card__footer {
+                    border-top: 1px solid #f0f3f8;
+                    padding-top: 12px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    flex-shrink: 0;
+                }
+
+                .blog-home-wrap {
+                    position: relative;
+                    padding: 0 50px;
+                }
+
+                .blog-nav-btn {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 50%;
+                    background: #0e3c7d;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #fff;
+                    font-size: 16px;
+                    text-decoration: none;
+                    transition: background .2s;
+                    z-index: 10;
+                }
+
+                .blog-nav-btn:hover {
+                    background: #59b5e8;
+                    color: #fff;
+                }
+
+                .blog-nav-btn.prev {
+                    left: 0;
+                }
+
+                .blog-nav-btn.next {
+                    right: 0;
+                }
+            </style>
+
+            <div class="blog-home-wrap">
+                <a class="blog-nav-btn prev blog-carousel-prev" href="#"><i class="fa fa-angle-left"></i></a>
+                <div class="blog-home-carousel owl-carousel owl-theme">
+                    <?php foreach ($homeBlogs as $blog):
+                        // Dynamic image path with $base prefix
+                        $rawImg = !empty($blog['main_image']) ? $blog['main_image'] : '';
+                        if (!empty($rawImg)) {
+                            $bImg = htmlspecialchars($base . '/' . ltrim($rawImg, '/'), ENT_QUOTES, 'UTF-8');
+                        } else {
+                            $bImg = htmlspecialchars($base . '/assets/images/blog/blog-1-1.jpg', ENT_QUOTES, 'UTF-8');
+                        }
+                        $bFallback = htmlspecialchars($base . '/assets/images/blog/blog-1-1.jpg', ENT_QUOTES, 'UTF-8');
+                        $bUrl  = $base . '/news/' . urlencode($blog['slug'] ?? '');
+                        $bDate = date('d M, Y', strtotime($blog['created_at']));
+                        $excerpt = !empty($blog['excerpt'])
+                            ? $blog['excerpt']
+                            : strip_tags($blog['description'] ?? '');
+                        $author = !empty($blog['author']) ? $blog['author'] : 'Admin';
+                    ?>
+                        <div class="item">
+                            <a href="<?php echo $bUrl; ?>" class="blog-card">
+                                <div class="blog-card__img">
+                                    <img src="<?php echo $bImg; ?>"
+                                        alt="<?php echo htmlspecialchars($blog['title'] ?? '', ENT_QUOTES, 'UTF-8'); ?>"
+                                        onerror="this.onerror=null;this.src='<?php echo $bFallback; ?>'" />
+                                    <div class="blog-card__date"><?php echo $bDate; ?></div>
+                                </div>
+                                <div class="blog-card__body">
+                                    <div class="blog-card__title">
+                                        <?php echo htmlspecialchars($blog['title'] ?? '', ENT_QUOTES, 'UTF-8'); ?>
+                                    </div>
+                                    <div class="blog-card__excerpt">
+                                        <?php echo htmlspecialchars($excerpt, ENT_QUOTES, 'UTF-8'); ?>
+                                    </div>
+                                    <div class="blog-card__footer">
+                                        <span style="font-size:12px;color:#adb5bd;">
+                                            <i class="far fa-user-circle" style="margin-right:4px;color:#59b5e8;"></i>
+                                            <?php echo htmlspecialchars($author, ENT_QUOTES, 'UTF-8'); ?>
+                                        </span>
+                                        <span style="font-size:12px;color:#59b5e8;font-weight:700;font-family:'Montserrat',sans-serif;">Read More →</span>
+                                    </div>
+                                </div>
+                            </a>
                         </div>
-                    </div>
-                    <div class="blog-one__content">
-                        <h3><a href="<?php echo $bUrl;?>"><?php echo htmlspecialchars($blog['title'],ENT_QUOTES,'UTF-8');?></a></h3>
-                        <p><?php echo htmlspecialchars(substr(strip_tags($blog['description']??'Dive into the latest insights from the Wavicle team.'),0,100),ENT_QUOTES,'UTF-8');?>...</p>
-                        <div class="blog-one__meta">
-                            <a href="<?php echo $bUrl;?>"><i class="far fa-user-circle"></i> <?php echo htmlspecialchars($blog['author']??'Admin',ENT_QUOTES,'UTF-8');?></a>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
+                <a class="blog-nav-btn next blog-carousel-next" href="#"><i class="fa fa-angle-right"></i></a>
             </div>
-            <?php endforeach;?>
-        </div>
-        <?php else:?>
-        <div style="text-align:center;padding:50px 0;">
-            <i class="fa fa-newspaper" style="font-size:48px;color:#dee2e6;display:block;margin-bottom:14px;"></i>
-            <p style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:#6c757d;">No Articles Yet</p>
-            <p style="color:#adb5bd;font-size:13px;">Articles will appear here once published from admin panel.</p>
-        </div>
-        <?php endif;?>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    if (typeof $ !== 'undefined' && $('.blog-home-carousel').length) {
+                        var blogOwl = $('.blog-home-carousel').owlCarousel({
+                            loop: true,
+                            margin: 24,
+                            nav: false,
+                            dots: false,
+                            autoplay: true,
+                            autoplayTimeout: 4000,
+                            autoplayHoverPause: true,
+                            responsive: {
+                                0: {
+                                    items: 1
+                                },
+                                576: {
+                                    items: 2
+                                },
+                                992: {
+                                    items: 3
+                                }
+                            }
+                        });
+                        $('.blog-carousel-prev').on('click', function(e) {
+                            e.preventDefault();
+                            blogOwl.trigger('prev.owl.carousel');
+                        });
+                        $('.blog-carousel-next').on('click', function(e) {
+                            e.preventDefault();
+                            blogOwl.trigger('next.owl.carousel');
+                        });
+                    }
+                });
+            </script>
+
+        <?php else: ?>
+            <div style="text-align:center;padding:50px 0;">
+                <i class="fa fa-newspaper" style="font-size:48px;color:#dee2e6;display:block;margin-bottom:14px;"></i>
+                <p style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:#6c757d;">No Articles Yet</p>
+                <p style="color:#adb5bd;font-size:13px;">Articles will appear here once published from admin panel.</p>
+            </div>
+        <?php endif; ?>
     </div>
 </section><!-- /.blog-one -->
 

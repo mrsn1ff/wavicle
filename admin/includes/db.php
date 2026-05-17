@@ -21,13 +21,15 @@ define('DB_CHAR', $_ENV['DB_CHAR'] ?? 'utf8mb4');
 try {
     $pdo = new PDO(
         'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=' . DB_CHAR,
-        DB_USER, DB_PASS,
+        DB_USER,
+        DB_PASS,
         [
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             PDO::ATTR_EMULATE_PREPARES   => false,
         ]
     );
+    date_default_timezone_set('Asia/Kolkata');
 } catch (PDOException $e) {
     die('<div style="font-family:Montserrat,sans-serif;padding:40px;color:#721c24;
     background:#f8d7da;border:1px solid #f5c6cb;margin:20px;border-radius:6px;">

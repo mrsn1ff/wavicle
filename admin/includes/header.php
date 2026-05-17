@@ -563,6 +563,27 @@ $siteBase   = preg_replace('#/admin/.*#', '/', $scriptPath);
             }
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('input[type="file"]').forEach(function(input) {
+                input.addEventListener('change', function() {
+                    var maxSize = 4 * 1024 * 1024; // 4MB
+                    if (this.files[0] && this.files[0].size > maxSize) {
+                        alert('Image size must be less than 4MB. Your file is ' + (this.files[0].size / 1024 / 1024).toFixed(2) + 'MB.');
+                        this.value = '';
+                        var previewId = this.getAttribute('data-preview');
+                        if (previewId) {
+                            var preview = document.getElementById(previewId);
+                            if (preview) {
+                                preview.src = '';
+                                preview.style.display = 'none';
+                            }
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -577,26 +598,26 @@ $siteBase   = preg_replace('#/admin/.*#', '/', $scriptPath);
             <a href="<?php echo $adminBase; ?>index.php" class="wv-nav-item <?php echo $adminActivePage === 'dashboard' ? 'active' : ''; ?>">
                 <i class="fa fa-gauge-high"></i> Dashboard
             </a>
-                    <div class="wv-sidebar__section-label">Catalog</div>
-        <a href="<?php echo $adminBase; ?>catalog/categories/index.php?type=product" class="wv-nav-item <?php echo $adminActivePage==='cat_mgr'?'active':''; ?>">
-            <i class="fa fa-folder-open"></i> Categories
-        </a>
-        <a href="<?php echo $adminBase; ?>catalog/products/index.php" class="wv-nav-item <?php echo $adminActivePage==='cat_products'?'active':''; ?>">
-            <i class="fa fa-box-open"></i> Products
-        </a>
-        <a href="<?php echo $adminBase; ?>catalog/services/index.php" class="wv-nav-item <?php echo $adminActivePage==='cat_services'?'active':''; ?>">
-            <i class="fa fa-concierge-bell"></i> Services
-        </a>
-        <a href="<?php echo $adminBase; ?>catalog/blogs/index.php" class="wv-nav-item <?php echo $adminActivePage==='cat_blogs'?'active':''; ?>">
-            <i class="fa fa-newspaper"></i> News &amp; Articles
-        </a>
-        <a href="<?php echo $adminBase; ?>blogs/index.php" class="wv-nav-item <?php echo $adminActivePage==='blogs'?'active':''; ?>">
-            <i class="fa fa-newspaper"></i> Blogs
-        </a>
-        <a href="<?php echo $adminBase; ?>support-requests.php" class="wv-nav-item <?php echo $adminActivePage==='support'?'active':''; ?>">
-            <i class="fa fa-headset"></i> Support Requests
-        </a>
-        <div class="wv-sidebar__section-label">Settings</div>
+            <div class="wv-sidebar__section-label">Catalog</div>
+            <a href="<?php echo $adminBase; ?>catalog/categories/index.php?type=product" class="wv-nav-item <?php echo $adminActivePage === 'cat_mgr' ? 'active' : ''; ?>">
+                <i class="fa fa-folder-open"></i> Categories
+            </a>
+            <a href="<?php echo $adminBase; ?>catalog/products/index.php" class="wv-nav-item <?php echo $adminActivePage === 'cat_products' ? 'active' : ''; ?>">
+                <i class="fa fa-box-open"></i> Products
+            </a>
+            <a href="<?php echo $adminBase; ?>catalog/services/index.php" class="wv-nav-item <?php echo $adminActivePage === 'cat_services' ? 'active' : ''; ?>">
+                <i class="fa fa-concierge-bell"></i> Services
+            </a>
+            <a href="<?php echo $adminBase; ?>catalog/blogs/index.php" class="wv-nav-item <?php echo $adminActivePage === 'cat_blogs' ? 'active' : ''; ?>">
+                <i class="fa fa-newspaper"></i> News &amp; Articles
+            </a>
+            <a href="<?php echo $adminBase; ?>blogs/index.php" class="wv-nav-item <?php echo $adminActivePage === 'blogs' ? 'active' : ''; ?>">
+                <i class="fa fa-newspaper"></i> Blogs
+            </a>
+            <a href="<?php echo $adminBase; ?>support-requests.php" class="wv-nav-item <?php echo $adminActivePage === 'support' ? 'active' : ''; ?>">
+                <i class="fa fa-headset"></i> Support Requests
+            </a>
+            <div class="wv-sidebar__section-label">Settings</div>
             <a href="<?php echo $adminBase; ?>change-password.php" class="wv-nav-item <?php echo $adminActivePage === 'password' ? 'active' : ''; ?>">
                 <i class="fa fa-key"></i> Change Password
             </a>

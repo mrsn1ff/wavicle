@@ -4,12 +4,21 @@ requireLogin();
 require_once __DIR__ . '/../includes/db.php';
 require_once __DIR__ . '/../includes/functions.php';
 
+// Force IST timezone
+date_default_timezone_set('Asia/Kolkata');
+
 $id = (int)($_GET['id'] ?? 0);
-if (!$id) { header('Location: index.php'); exit; }
+if (!$id) {
+    header('Location: index.php');
+    exit;
+}
 $stmt = $pdo->prepare('SELECT * FROM blogs WHERE id = ?');
 $stmt->execute([$id]);
 $blog = $stmt->fetch();
-if (!$blog) { header('Location: index.php'); exit; }
+if (!$blog) {
+    header('Location: index.php');
+    exit;
+}
 
 $errors = [];
 $data = $blog;
@@ -26,11 +35,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!$data['content']) $errors[] = 'Content is required.';
 
     if (!$errors) {
-        // Re-slug only if title changed
         $slug = $blog['slug'];
         if ($data['title'] !== $blog['title']) {
             $slug = makeSlug($data['title']);
-            $base = $slug; $i = 1;
+            $base = $slug;
+            $i = 1;
             while (true) {
                 $chk = $pdo->prepare('SELECT COUNT(*) FROM blogs WHERE slug = ? AND id != ?');
                 $chk->execute([$slug, $id]);
@@ -39,14 +48,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
 
-        $newImage = handleImageUpload('image', 'blogs', $blog['image']);
+        $newImage  = handleImageUpload('image', 'blogs', $blog['image']);
         $imagePath = $newImage ?: $blog['image'];
+        $nowIST    = date('Y-m-d H:i:s');
 
-        $stmt = $pdo->prepare('UPDATE blogs SET title=?, slug=?, excerpt=?, content=?, image=?, author=?, status=? WHERE id=?');
-        $stmt->execute([$data['title'], $slug, $data['excerpt'], $data['content'], $imagePath, $data['author'], $data['status'], $id]);
+        $stmt = $pdo->prepare('UPDATE blogs SET title=?, slug=?, excerpt=?, content=?, image=?, author=?, status=?, created_at=? WHERE id=?');
+        $stmt->execute([$data['title'], $slug, $data['excerpt'], $data['content'], $imagePath, $data['author'], $data['status'], $nowIST, $id]);
 
         setFlash('success', 'Blog post updated successfully.');
-        header('Location: index.php'); exit;
+        header('Location: index.php');
+        exit;
     }
 }
 
@@ -64,9 +75,9 @@ include __DIR__ . '/../includes/header.php';
 </div>
 
 <?php if ($errors): ?>
-<div style="background:#f8d7da;border:1px solid #f5c6cb;color:#721c24;padding:14px 20px;border-radius:6px;margin-bottom:20px;">
-    <?php foreach ($errors as $err): ?><div><i class="fa fa-circle-exclamation"></i> <?php echo e($err); ?></div><?php endforeach; ?>
-</div>
+    <div style="background:#f8d7da;border:1px solid #f5c6cb;color:#721c24;padding:14px 20px;border-radius:6px;margin-bottom:20px;">
+        <?php foreach ($errors as $err): ?><div><i class="fa fa-circle-exclamation"></i> <?php echo e($err); ?></div><?php endforeach; ?>
+    </div>
 <?php endif; ?>
 
 <div style="display:grid; grid-template-columns: 1fr 320px; gap:24px; align-items:start;">
@@ -86,7 +97,7 @@ include __DIR__ . '/../includes/header.php';
                     <div class="wv-form-group">
                         <label class="wv-label">Full Content <span class="wv-required">*</span></label>
                         <textarea name="content" class="wv-textarea" style="min-height:280px;" required><?php echo e($data['content']); ?></textarea>
-                        <small style="color:#6c757d; font-size:11px; margin-top:4px; display:block;">HTML tags are supported: &lt;p&gt; &lt;h3&gt; &lt;ul&gt; &lt;li&gt; &lt;strong&gt; &lt;em&gt; &lt;a&gt;</small>
+                        <small style="color:#6c757d; font-size:11px; margin-top:4px; display:block;">HTML tags supported: &lt;p&gt; &lt;h3&gt; &lt;ul&gt; &lt;li&gt; &lt;strong&gt; &lt;em&gt;</small>
                     </div>
                     <div style="display:flex; gap:12px; padding-top:8px;">
                         <button type="submit" class="wv-btn wv-btn-success"><i class="fa fa-save"></i> Update Post</button>
@@ -118,17 +129,16 @@ include __DIR__ . '/../includes/header.php';
                 </div>
             </div>
         </div>
-
         <div class="wv-card">
             <div class="wv-card__header"><span class="wv-card__title">Featured Image</span></div>
             <div class="wv-card__body">
                 <?php if ($data['image']): ?>
-                <div class="wv-img-preview" style="margin-bottom:12px;">
-                    <img id="img_preview" src="../../<?php echo e($data['image']); ?>" alt="" style="width:100%; border-radius:6px;" />
-                </div>
-                <small style="color:#6c757d; font-size:11px; display:block; margin-bottom:8px;">Upload a new image to replace this one.</small>
+                    <div class="wv-img-preview" style="margin-bottom:12px;">
+                        <img id="img_preview" src="../../<?php echo e($data['image']); ?>" alt="" style="width:100%; border-radius:6px;" />
+                    </div>
+                    <small style="color:#6c757d; font-size:11px; display:block; margin-bottom:8px;">Upload new to replace.</small>
                 <?php else: ?>
-                <div class="wv-img-preview" style="margin-bottom:12px;"><img id="img_preview" src="" alt="" style="display:none; width:100%;" /></div>
+                    <div class="wv-img-preview" style="margin-bottom:12px;"><img id="img_preview" src="" alt="" style="display:none; width:100%;" /></div>
                 <?php endif; ?>
                 <input type="file" name="image" form="blog-form" class="wv-input" accept="image/*" data-preview="img_preview" style="padding:8px;" />
             </div>

@@ -48,7 +48,7 @@ include __DIR__ . '/../includes/header.php';
 </div>
 <?php if ($errors): ?><div style="background:#f8d7da;border:1px solid #f5c6cb;color:#721c24;padding:14px 20px;border-radius:6px;margin-bottom:20px;"><?php foreach($errors as $err): ?><div><i class="fa fa-circle-exclamation"></i> <?php echo e($err);?></div><?php endforeach;?></div><?php endif;?>
 <div class="wv-card"><div class="wv-card__header"><span class="wv-card__title">Edit: <?php echo e($product['title']);?></span></div><div class="wv-card__body">
-<form method="POST" enctype="multipart/form-data">
+<form method="POST" enctype="multipart/form-data" onsubmit="syncCK()">
     <div class="wv-form-row">
         <div class="wv-form-group"><label class="wv-label">Title <span class="wv-required">*</span></label><input type="text" name="title" class="wv-input" value="<?php echo e($data['title']);?>" required/></div>
         <div class="wv-form-group"><label class="wv-label">Category</label><input type="text" name="category" class="wv-input" value="<?php echo e($data['category']);?>"/></div>

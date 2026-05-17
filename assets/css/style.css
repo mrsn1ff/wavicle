@@ -6228,3 +6228,16 @@ a:focus {
   font-size: 50px !important;
 }
 
+
+/*-------------------------------------------------------------- 
+ # Contact 
+ --------------------------------------------------------------*/
+
+.contact-title {
+  font-size: 60px !important;
+  text-transform: uppercase !important;
+  font-weight: bold !important;
+  color: var(--thm-black) !important;
+  margin: 0 !important;
+  font-family: var(--thm-font) !important;
+}
