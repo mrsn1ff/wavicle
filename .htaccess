@@ -1,24 +1,37 @@
-Options -Indexes
 RewriteEngine On
 
-# Static files pass through
-RewriteCond %{REQUEST_FILENAME} -f [OR]
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^ - [L]
+# REMOVE TRAILING SLASH
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.+)/$ /$1 [R=301,L]
 
-# Products
-RewriteRule ^products/([^/]+)/([^/]+)/?$ catalog-item.php?cat=$1&slug=$2 [L,QSA]
-RewriteRule ^products/([^/]+)/?$ catalog-category.php?slug=$1 [L,QSA]
-RewriteRule ^products/?$ courses.php [L,QSA]
+# =========================
+# PRODUCTS
+# =========================
 
-# Services
-RewriteRule ^services/([^/]+)/([^/]+)/?$ catalog-item.php?cat=$1&slug=$2 [L,QSA]
-RewriteRule ^services/([^/]+)/?$ catalog-category.php?slug=$1 [L,QSA]
-RewriteRule ^services/?$ index.php [L,QSA]
+RewriteRule ^products/([^/]+)/([^/]+)/?$ catalog-item.php?cat=$1&slug=$2 [NC,L,QSA]
 
-# News
-RewriteRule ^news/([^/]+)/?$ news-detail.php?slug=$1 [L,QSA]
-RewriteRule ^news/?$ news.php [L,QSA]
+RewriteRule ^products/([^/]+)/?$ catalog-category.php?slug=$1 [NC,L,QSA]
 
-php_value upload_max_filesize 10M
-php_value post_max_size 10M
+RewriteRule ^products/?$ courses.php [NC,L,QSA]
+
+# =========================
+# SERVICES
+# =========================
+
+RewriteRule ^services/([^/]+)/([^/]+)/?$ catalog-item.php?cat=$1&slug=$2 [NC,L,QSA]
+
+RewriteRule ^services/([^/]+)/?$ catalog-category.php?slug=$1 [NC,L,QSA]
+
+RewriteRule ^services/?$ index.php [NC,L,QSA]
+
+# =========================
+# NEWS
+# =========================
+
+RewriteRule ^news/([^/]+)/?$ news-detail.php?slug=$1 [NC,L,QSA]
+
+RewriteRule ^news/?$ news.php [NC,L,QSA]
+
+# =========================
+# SKIP EXISTING FILES
+# =========================

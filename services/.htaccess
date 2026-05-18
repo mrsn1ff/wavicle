@@ -1,4 +1,0 @@
-Options -Indexes
-RewriteEngine On
-RewriteRule ^([^/]+)/([^/]+)/?$ /wavicle/catalog-item.php?cat=$1&slug=$2 [L,QSA]
-RewriteRule ^([^/]+)/?$ /wavicle/catalog-category.php?slug=$1 [L,QSA]

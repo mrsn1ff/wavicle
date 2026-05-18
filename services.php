@@ -60,9 +60,8 @@ include __DIR__ . '/includes/header.php';
 
     .pc-card img {
         width: 100%;
-        height: 280px;
-        object-fit: cover;
-        display: block;
+        height: 100%;
+        object-fit: contain;
     }
 
     .pc-card-body {
