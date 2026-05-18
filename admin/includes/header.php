@@ -543,6 +543,60 @@ $siteBase   = preg_replace('#/admin/.*#', '/', $scriptPath);
             text-decoration: none;
         }
 
+        /* ===== GLOBAL PRODUCT IMAGE FIX ===== */
+        .course-one__image-inner img {
+            width: 100% !important;
+            height: 370px !important;
+            object-fit: contain !important;
+        }
+
+        .cc-card img,
+        .cc-card div>img {
+            width: 100% !important;
+            height: 300px !important;
+            object-fit: contain !important;
+            background: #eef4fb !important;
+        }
+
+        .pc-card img,
+        .pc-card div>img {
+            width: 100% !important;
+            height: 280px !important;
+            object-fit: contain !important;
+            background: #eef4fb !important;
+        }
+
+        .ci-img-col {
+            background: #eef4fb !important;
+        }
+
+        .ci-img-col img {
+            width: 100% !important;
+            height: 100% !important;
+            max-height: 560px !important;
+            object-fit: contain !important;
+            background: #eef4fb !important;
+            padding: 20px !important;
+        }
+
+        .ci-rel-card img {
+            width: 100% !important;
+            height: 200px !important;
+            object-fit: contain !important;
+            background: #eef4fb !important;
+        }
+
+        .bi-img-col {
+            background: #eef4fb !important;
+        }
+
+        .bi-img-col img {
+            width: 100% !important;
+            object-fit: contain !important;
+            background: #eef4fb !important;
+            padding: 20px !important;
+        }
+
         @media (max-width: 768px) {
             .wv-sidebar {
                 transform: translateX(-100%);

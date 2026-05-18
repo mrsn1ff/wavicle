@@ -17,43 +17,34 @@ include __DIR__ . '/includes/header.php';
 ?>
 
 <!-- Hero Slider -->
-<div class="slider-one__wrapper">
-    <div class="slider-one">
-        <div class="slider-one__carousel thm__owl-dot-1 owl-carousel owl-theme thm__owl-carousel"
-            data-carousel-prev-btn=".slider-one__nav-right"
-            data-carousel-next-btn=".slider-one__nav-left"
-            data-options='{"loop": true, "items": 1, "margin": 0, "dots": true, "nav": false, "animateOut": "slideOutDown", "animateIn": "fadeIn", "active": true, "smartSpeed": 1000, "autoplay": true, "autoplayTimeout": 7000, "autoplayHoverPause": false}'>
-            <div class="item slider-one__slide-1" style="background-image: url(assets/images/background/slide-bg-1-1.jpg);">
-                <div class="container">
-                    <div class="slider-one__content text-center">
-                        <p class="anim-elm">Discover Scuba Diving with Wavicle</p>
-                        <h3 class="anim-elm">A New Discovery <br />Awaits</h3>
-                        <a href="https://wa.me/919560838375" target="_blank" rel="noopener" class="anim-elm" style="display:inline-block;">
-                            <img src="assets/images/chat_whatsapp.png" alt="Chat on WhatsApp"
-                                style="height:80px; width:auto; max-width:220px;" />
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="item slider-one__slide-2" style="background-image: url(assets/images/background/slide-bg-1-2.jpg);">
-                <div class="container">
-                    <div class="slider-one__content text-center">
-                        <p class="anim-elm">Experience the Ocean with Wavicle</p>
-                        <h3 class="anim-elm">Take Your Dive <br />To The Next Level</h3>
-                        <a href="https://wa.me/919560838375" target="_blank" rel="noopener" class="anim-elm" style="display:inline-block;">
-                            <img src="assets/images/chat_whatsapp.png" alt="Chat on WhatsApp"
-                                style="height:80px; width:auto; max-width:220px;" />
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div><!-- /.slider-one__carousel -->
-        <div class="slider-one__nav">
-            <a href="#" class="slider-one__nav-left"><i class="fa fa-angle-right"></i></a>
-            <a href="#" class="slider-one__nav-right"><i class="fa fa-angle-left"></i></a>
-        </div>
-    </div><!-- /.slider-one -->
-</div><!-- /.slider-one__wrapper -->
+<!-- Hero Video -->
+<div class="hero-video__wrapper" style="position:relative; width:100%; height:100vh; min-height:500px; overflow:hidden;">
+
+    <!-- Background Video -->
+    <video
+        autoplay
+        muted
+        loop
+        playsinline
+        style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0;">
+        <source src="<?php echo $base; ?>/assets/images/background/hero.mp4" type="video/mp4" />
+        <source src="<?php echo $base; ?>/assets/images/background/hero.webm" type="video/webm" />
+        <img src="<?php echo $base; ?>/assets/images/background/slide-bg-1-1.jpg" alt="Wavicle Pools" style="width:100%;height:100%;object-fit:cover;" />
+    </video>
+
+    <!-- Dark overlay -->
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(5,27,53,0.45); z-index:1;"></div>
+
+    <!-- WhatsApp button — bottom center -->
+    <div style="position:absolute; bottom:60px; left:50%; transform:translateX(-50%); z-index:2;">
+        <a href="https://wa.me/919560838375" target="_blank" rel="noopener" style="display:inline-block;">
+            <img src="<?php echo $base; ?>/assets/images/chat_whatsapp.png" alt="Chat on WhatsApp"
+                style="height:100px; width:auto; max-width:220px;" />
+        </a>
+    </div>
+
+</div><!-- /.hero-video__wrapper -->
+
 
 <!-- CTA Banner -->
 <section class="cta-two">
@@ -181,7 +172,7 @@ $homepageProducts = $pdo->query(
                 data-carousel-prev-btn=".course-one__carousel-btn-left"
                 data-carousel-next-btn=".course-one__carousel-btn-right">
                 <?php foreach ($homepageProducts as $p):
-                    $imgSrc    = !empty($p['main_image']) ? htmlspecialchars($p['main_image'], ENT_QUOTES, 'UTF-8') : $base . '/assets/images/courses/course-1-1.jpg';
+                    $imgSrc = !empty($p['main_image']) ? htmlspecialchars($base . '/' . ltrim($p['main_image'], '/'), ENT_QUOTES, 'UTF-8') : $base . '/assets/images/courses/course-1-1.jpg';
                     $detailUrl = $base . '/products/' . urlencode($p['cat_slug']) . '/' . urlencode($p['slug']);
                 ?>
                     <div class="item">
@@ -423,10 +414,21 @@ $homepageProducts = $pdo->query(
                     box-shadow: 0 2px 14px rgba(14, 60, 125, .06);
                     display: flex;
                     flex-direction: column;
-                    height: 420px;
+                    height: 100%;
                     text-decoration: none;
                     cursor: pointer;
                     transition: box-shadow .25s, transform .25s;
+                }
+
+                .blog-home-carousel .owl-item {
+                    display: flex;
+                }
+
+                .blog-home-carousel .item {
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+                    padding: 8px;
                 }
 
                 .blog-card:hover {
@@ -437,15 +439,20 @@ $homepageProducts = $pdo->query(
                 .blog-card__img {
                     position: relative;
                     flex-shrink: 0;
-                    height: 200px;
+                    width: 100%;
+                    padding-bottom: 100%;
                     overflow: hidden;
-                    background: #f0f4fb;
+                    background: #f0f6fc;
                 }
 
                 .blog-card__img img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
                     width: 100%;
-                    height: 200px;
-                    object-fit: cover;
+                    height: 100%;
+                    object-fit: contain;
+                    object-position: center center;
                     display: block;
                 }
 
@@ -481,18 +488,20 @@ $homepageProducts = $pdo->query(
                     -webkit-line-clamp: 2;
                     -webkit-box-orient: vertical;
                     overflow: hidden;
+                    min-height: 40px;
                 }
 
                 .blog-card__excerpt {
                     font-size: 13px;
                     color: #6c757d;
                     line-height: 1.65;
-                    flex: 1;
                     display: -webkit-box;
-                    -webkit-line-clamp: 3;
+                    -webkit-line-clamp: 2;
                     -webkit-box-orient: vertical;
                     overflow: hidden;
                     margin-bottom: 14px;
+                    min-height: 43px;
+                    flex: 1;
                 }
 
                 .blog-card__footer {
@@ -595,7 +604,7 @@ $homepageProducts = $pdo->query(
                     if (typeof $ !== 'undefined' && $('.blog-home-carousel').length) {
                         var blogOwl = $('.blog-home-carousel').owlCarousel({
                             loop: true,
-                            margin: 24,
+                            margin: 20,
                             nav: false,
                             dots: false,
                             autoplay: true,
@@ -610,6 +619,9 @@ $homepageProducts = $pdo->query(
                                 },
                                 992: {
                                     items: 3
+                                },
+                                1200: {
+                                    items: 4
                                 }
                             }
                         });

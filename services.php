@@ -151,8 +151,8 @@ include __DIR__ . '/includes/header.php';
                             <div class="pc-tag-text"><?php echo htmlspecialchars($cat['name'], ENT_QUOTES, 'UTF-8'); ?></div>
                         </div>
                         <div class="pc-card-body">
-                            <!-- <div class="pc-card-title"><?php echo htmlspecialchars($cat['name'], ENT_QUOTES, 'UTF-8'); ?></div>
-                            <div class="pc-card-count"><?php echo $itemCount; ?> Service<?php echo $itemCount != 1 ? 's' : ''; ?></div> -->
+                            <div class="pc-card-title"><?php echo htmlspecialchars($cat['name'], ENT_QUOTES, 'UTF-8'); ?></div>
+                            <div class="pc-card-count"><?php echo $itemCount; ?> Service<?php echo $itemCount != 1 ? 's' : ''; ?></div>
                             <?php if (!empty($cat['description'])): ?>
                                 <p style="margin:8px 0 0;font-size:12px;color:#6c757d;line-height:1.5;">
                                     <?php echo htmlspecialchars(substr($cat['description'], 0, 80), ENT_QUOTES, 'UTF-8'); ?>...

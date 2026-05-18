@@ -36,7 +36,6 @@
 
     <!-- Font Override: apply Montserrat to all headings, Avant Garde to body text -->
     <style>
-        
         body,
         p,
         li,
@@ -327,8 +326,8 @@
 
         .course-one__image-inner img {
             width: 100% !important;
-            height: 220px !important;
-            object-fit: cover !important;
+            height: 370px !important;
+            object-fit: contain !important;
         }
 
         .course-one__single {

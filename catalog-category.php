@@ -118,7 +118,7 @@ include __DIR__ . '/includes/header.php';
 </style>
 
 <div class="cc-hero">
-    
+
     <div class="container" style="position:relative;z-index:1;text-align:center;">
         <div style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#59b5e8;margin-bottom:12px;font-family:'Montserrat',sans-serif;">
             <?php echo ucfirst($catType); ?> Category
@@ -126,11 +126,7 @@ include __DIR__ . '/includes/header.php';
         <h1 style="font-family:'Montserrat',sans-serif;font-size:clamp(26px,5vw,44px);font-weight:800;color:#fff;text-transform:uppercase;margin-bottom:14px;">
             <?php echo htmlspecialchars($category['name'], ENT_QUOTES, 'UTF-8'); ?>
         </h1>
-        <?php if (!empty($category['description'])): ?>
-            <p style="color:rgba(255,255,255,.7);font-size:15px;max-width:580px;margin:0 auto;">
-                <?php echo htmlspecialchars($category['description'], ENT_QUOTES, 'UTF-8'); ?>
-            </p>
-        <?php endif; ?>
+
     </div>
 </div>
 
@@ -162,8 +158,8 @@ include __DIR__ . '/includes/header.php';
                             <img src="<?php echo $img; ?>"
                                 alt="<?php echo htmlspecialchars($it['title'] ?? '', ENT_QUOTES, 'UTF-8'); ?>"
                                 onerror="this.onerror=null;this.src='<?php echo $fallback; ?>'"
-                                style="width:100%;height:300px;object-fit:cover;display:block;" />
-                            <div class="cc-tag"><?php echo htmlspecialchars($category['name'], ENT_QUOTES, 'UTF-8'); ?></div>
+                                style="width:100%;height:100%;object-fit:cover;display:block;" />
+
                         </div>
                         <div class="cc-card-title"><?php echo htmlspecialchars($it['title'] ?? '', ENT_QUOTES, 'UTF-8'); ?></div>
                     </a>

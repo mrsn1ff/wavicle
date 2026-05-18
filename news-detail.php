@@ -107,10 +107,9 @@ include __DIR__ . '/includes/header.php';
 
     .bi-img-col img {
         width: 100%;
-        height: auto;
-        padding: 100px 0 0 0;
-        object-fit: cover;
-        display: block;
+        height: 100%;
+        padding: 100px 0 30px 0;
+        object-fit: contain;
     }
 
     .bi-desc-col {

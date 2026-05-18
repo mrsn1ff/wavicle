@@ -58,9 +58,8 @@ include __DIR__ . '/includes/header.php';
 
     .news-card img {
         width: 100%;
-        height: 260px;
-        object-fit: cover;
-        display: block;
+        height: 100%;
+        object-fit: contain;
     }
 
     .news-card-body {
