@@ -16,11 +16,11 @@ $activePage = 'home';
 include __DIR__ . '/includes/header.php';
 ?>
 
-<!-- Hero Slider -->
-<!-- Hero Video -->
-<div class="hero-video__wrapper" style="position:relative; width:100%; height:100vh; min-height:500px; overflow:hidden;">
 
-    <!-- Background Video -->
+<!-- Hero Video -->
+<!-- <div class="hero-video__wrapper" style="position:relative; width:100%; height:100vh; min-height:500px; overflow:hidden;">
+
+    
     <video
         autoplay
         muted
@@ -32,10 +32,9 @@ include __DIR__ . '/includes/header.php';
         <img src="<?php echo $base; ?>/assets/images/background/slide-bg-1-1.jpg" alt="Wavicle Pools" style="width:100%;height:100%;object-fit:cover;" />
     </video>
 
-    <!-- Dark overlay -->
-    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(5,27,53,0.45); z-index:1;"></div>
+    
 
-    <!-- WhatsApp button — bottom center -->
+    
     <div style="position:absolute; bottom:60px; left:50%; transform:translateX(-50%); z-index:2;">
         <a href="https://wa.me/919560838375" target="_blank" rel="noopener" style="display:inline-block;">
             <img src="<?php echo $base; ?>/assets/images/chat_whatsapp.png" alt="Chat on WhatsApp"
@@ -43,7 +42,25 @@ include __DIR__ . '/includes/header.php';
         </a>
     </div>
 
-</div><!-- /.hero-video__wrapper -->
+</div> -->
+
+<!-- Hero Video -->
+<div class="hero-video__wrapper">
+    <!-- Background Video -->
+    <video class="hero-video__video" autoplay muted loop playsinline>
+        <source src="<?php echo $base; ?>/assets/images/background/hero.mp4" type="video/mp4" />
+        <source src="<?php echo $base; ?>/assets/images/background/hero.webm" type="video/webm" />
+        <img src="<?php echo $base; ?>/assets/images/background/slide-bg-1-1.jpg" alt="Wavicle Pools" class="hero-video__fallback" />
+    </video>
+    
+
+    <!-- WhatsApp button — bottom center -->
+    <div class="hero-video__wa-wrap">
+        <a href="https://wa.me/919560838375" target="_blank" rel="noopener" class="hero-video__wa-link">
+            <img src="<?php echo $base; ?>/assets/images/chat_whatsapp.png" alt="Chat on WhatsApp" class="hero-video__wa-img" />
+        </a>
+    </div>
+</div>
 
 
 <!-- CTA Banner -->
@@ -287,10 +304,40 @@ $homepageProducts = $pdo->query(
 </section><!-- /.testimonials-one__carousel-wrapper -->
 
 <!-- CTA Three -->
+<!-- <section class="cta-three" style="overflow:hidden; position:relative;">
+    <div class="container" style="position:relative;">
+        <div class="cta-three__title">Get Consultation!</div>
+        <div style="display:flex; align-items:center; min-height:420px;">
+
+            
+            <div style="width:60%; padding:50px 60px; position:relative; z-index:2; flex-shrink:0;">
+                <div class="block-title" style="margin-bottom:22px;">
+                    <p class="text-uppercase" style="margin-bottom:10px;">From Our Expert Technicians</p>
+                    <h3 class="text-uppercase" style="margin-bottom:22px;">24x7 <br> Available</h3>
+                </div>
+                <p style="color:#fff; font-size:15px; line-height:1.85; margin-bottom:30px;">
+                    Wavicle provides professional support around the clock. Our expert technicians are always ready to assist you with installation, maintenance and consultation.
+                </p>
+                <a href="contact.php" class="thm-btn cta-three__btn">Get Consultation</a>
+            </div>
+
+            
+            <div style="width:50%; flex-shrink:0; position:relative; align-self:stretch; overflow:hidden;">
+                <img src="assets/images/group.png" alt="Expert Team"
+                    class="wow fadeInRight" data-wow-duration="1500ms"
+                    style="position:absolute; bottom:0; right:0; height:110%; width:auto; max-width:none; object-fit:contain;" />
+            </div>
+
+        </div>
+    </div>
+</section> -->
+
+<!-- CTA Three -->
 <section class="cta-three cta-three--section">
     <div class="container cta-three--container">
         <div class="cta-three__title">Get Consultation!</div>
         <div class="cta-three__flex-wrap">
+
             <!-- Left Text -->
             <div class="cta-three__text-col">
                 <div class="block-title cta-three__block-title">
@@ -302,14 +349,16 @@ $homepageProducts = $pdo->query(
                 </p>
                 <a href="contact.php" class="thm-btn cta-three__btn">Get Consultation</a>
             </div>
+
             <!-- Right Image -->
             <div class="cta-three__img-col">
                 <img src="assets/images/group.png" alt="Expert Team"
                     class="cta-three__group-img wow fadeInRight" data-wow-duration="1500ms" />
             </div>
+
         </div>
     </div>
-</section><!-- /.cta-three -->
+</section>
 
 <!-- Feature Boxes -->
 <div class="cta-three__feature">

@@ -301,7 +301,7 @@
         .wv-stat-number {
             font-size: 44px;
             font-weight: 800;
-            color: #051b35;
+            color: #ffff;
             font-family: 'Montserrat', sans-serif;
             line-height: 1;
             white-space: nowrap;
@@ -310,7 +310,7 @@
         .wv-stat-label {
             font-size: 11px;
             font-weight: 700;
-            color: #051b35;
+            color: #ffff;
             font-family: 'Montserrat', sans-serif;
             text-transform: uppercase;
             line-height: 1.5;
