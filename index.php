@@ -130,11 +130,13 @@ $dbServiceCats = $pdo->query("SELECT * FROM catalog_categories WHERE type='servi
         </div>
     </div>
 </section><!-- /.funfact-one --><!-- /.funfact-one -->
+<!-- /.funfact-one --><!-- /.funfact-one -->
 
+<!-- /.course-one__title -->
 <!-- Courses Title -->
 <section class="course-one__title">
     <div class="course-one__bg" style="background-image: url(assets/images/shapes/water-wave-bg.png)"></div>
-    <div class="container">
+    <div class="container course-container">
         <div class="block-title text-left">
             <img src="assets/images/shapes/sec-line-1.png" alt="" />
             <p class="text-uppercase">Our Products</p>
@@ -145,7 +147,6 @@ $dbServiceCats = $pdo->query("SELECT * FROM catalog_categories WHERE type='servi
         </div>
     </div>
 </section><!-- /.course-one__title -->
-
 <!-- Courses Carousel — Homepage Featured Products -->
 <?php
 // Fetch first product from each category for homepage carousel
@@ -178,7 +179,7 @@ $homepageProducts = $pdo->query(
                     <div class="item">
                         <div class="course-one__single">
                             <div class="course-one__image">
-                                <a href="<?php echo $detailUrl; ?>" class="course-one__cat"><?php echo htmlspecialchars($p['cat_name'], ENT_QUOTES, 'UTF-8'); ?></a>
+
                                 <div class="course-one__image-inner">
                                     <img src="<?php echo $imgSrc; ?>" alt="<?php echo htmlspecialchars($p['title'], ENT_QUOTES, 'UTF-8'); ?>"
                                         onerror="this.onerror=null;this.src='<?php echo $base; ?>/assets/images/courses/course-1-1.jpg'" />
@@ -286,30 +287,26 @@ $homepageProducts = $pdo->query(
 </section><!-- /.testimonials-one__carousel-wrapper -->
 
 <!-- CTA Three -->
-<section class="cta-three" style="overflow:hidden; position:relative;">
-    <div class="container" style="position:relative;">
+<section class="cta-three cta-three--section">
+    <div class="container cta-three--container">
         <div class="cta-three__title">Get Consultation!</div>
-        <div style="display:flex; align-items:center; min-height:420px;">
-
-            <!-- Left Text — 50% width with proper padding -->
-            <div style="width:60%; padding:50px 60px; position:relative; z-index:2; flex-shrink:0;">
-                <div class="block-title" style="margin-bottom:22px;">
-                    <p class="text-uppercase" style="margin-bottom:10px;">From Our Expert Technicians</p>
-                    <h3 class="text-uppercase" style="margin-bottom:22px;">24x7 <br> Available</h3>
+        <div class="cta-three__flex-wrap">
+            <!-- Left Text -->
+            <div class="cta-three__text-col">
+                <div class="block-title cta-three__block-title">
+                    <p class="text-uppercase">From Our Expert Technicians</p>
+                    <h3 class="text-uppercase">24x7 <br> Available</h3>
                 </div>
-                <p style="color:#fff; font-size:15px; line-height:1.85; margin-bottom:30px;">
+                <p class="cta-three__desc">
                     Wavicle provides professional support around the clock. Our expert technicians are always ready to assist you with installation, maintenance and consultation.
                 </p>
                 <a href="contact.php" class="thm-btn cta-three__btn">Get Consultation</a>
             </div>
-
-            <!-- Right Image — 50% width, image bottom-aligned -->
-            <div style="width:50%; flex-shrink:0; position:relative; align-self:stretch; overflow:hidden;">
+            <!-- Right Image -->
+            <div class="cta-three__img-col">
                 <img src="assets/images/group.png" alt="Expert Team"
-                    class="wow fadeInRight" data-wow-duration="1500ms"
-                    style="position:absolute; bottom:0; right:0; height:110%; width:auto; max-width:none; object-fit:contain;" />
+                    class="cta-three__group-img wow fadeInRight" data-wow-duration="1500ms" />
             </div>
-
         </div>
     </div>
 </section><!-- /.cta-three -->
@@ -375,19 +372,13 @@ $homepageProducts = $pdo->query(
 
 <!-- /.cta-five -->
 
-<!-- Brand Carousel -->
-<section class="brand-one brand-one__home-one">
-    <div class="container">
-        <div class="brand-one__carousel owl-carousel thm__owl-carousel owl-theme"
-            data-options='{"loop": true, "autoplay": true, "autoplayHoverPause": true, "autoplayTimeout": 5000, "items": 5, "dots": false, "nav": false, "margin": 100, "smartSpeed": 700, "responsive": { "0": {"items": 2, "margin": 30}, "480": {"items": 3, "margin": 30}, "991": {"items": 4, "margin": 50}, "1199": {"items": 5, "margin": 100}}}'>
-            <?php for ($i = 1; $i <= 6; $i++): ?>
-                <div class="item"><img src="assets/images/brand/brand-1-<?php echo $i; ?>.png" alt="" /></div>
-            <?php endfor; ?>
-            <?php for ($i = 1; $i <= 6; $i++): ?>
-                <div class="item"><img src="assets/images/brand/brand-1-<?php echo $i; ?>.png" alt="" /></div>
-            <?php endfor; ?>
-        </div>
-    </div>
+<!-- Sponsor Banner -->
+<section class="brand-one brand-one__home-one" style="padding:0; overflow:hidden;">
+    <img src="<?php echo $base; ?>/assets/images/sponser.png"
+        alt="Sponsor"
+        style="width:100%; display:block; transition: transform 0.4s ease;"
+        onmouseover="this.style.transform='scale(1.03)'"
+        onmouseout="this.style.transform='scale(1)'" />
 </section>
 
 <!-- Blog — Dynamic from DB -->

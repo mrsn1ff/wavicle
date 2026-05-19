@@ -896,17 +896,7 @@ a:focus {
   color: #fff;
 }
 
-@media (max-width: 1550px) {
-  .main-nav-one__infos-email {
-    -webkit-transform: translateY(-50%) translateX(50%);
-    transform: translateY(-50%) translateX(50%);
-  }
 
-  .main-nav-one__infos-phone {
-    -webkit-transform: translateY(-50%) translateX(30%);
-    transform: translateY(-50%) translateX(30%);
-  }
-}
 
 
 .main-nav-one .inner-container {
@@ -4815,21 +4805,7 @@ a:focus {
   padding-top: 25px;
 }
 
-.brand-one__home-one::before {
-  content: "";
-  width: 100%;
-  height: 32px;
-  display: block;
-  background-image: url(../images/shapes/wave-3.png);
-  background-position: center center;
-  position: absolute;
-  top: -7px;
-  left: 0;
-  -webkit-animation: bgSlide 20s linear infinite;
-  animation: bgSlide 20s linear infinite;
-  -webkit-transform: rotate(180deg);
-  transform: rotate(180deg);
-}
+
 
 .brand-one__home-one .brand-one__carousel {
   border-top: 0;
@@ -6179,10 +6155,7 @@ a:focus {
 .service-carousel-prev { left: 50px; }
 .service-carousel-next { right: 50px; }
 
-@media (max-width: 1199px) {
-    .service-carousel-prev { left: 5px; }
-    .service-carousel-next { right: 5px; }
-}
+
 @media (max-width: 991px) {
     .service-carousel-prev { left: 10px; }
     .service-carousel-next { right: 10px; }
@@ -6240,4 +6213,181 @@ a:focus {
   color: var(--thm-black) !important;
   margin: 0 !important;
   font-family: var(--thm-font) !important;
+}
+
+/*--------------------------------------------------------------
+ # CTA Three Custom
+--------------------------------------------------------------*/
+/* Section */
+.cta-three--section {
+    overflow: hidden;
+    position: relative;
+}
+
+.cta-three--container {
+    position: relative;
+}
+
+/* Flex wrapper */
+.cta-three__flex-wrap {
+    display: flex;
+    align-items: center;
+    min-height: 420px;
+}
+
+/* Left col */
+.cta-three__text-col {
+    width: 60%;
+    padding: 50px 60px;
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+}
+
+.cta-three__block-title {
+    margin-bottom: 22px;
+}
+
+.cta-three__block-title p {
+    margin-bottom: 10px;
+}
+
+.cta-three__block-title h3 {
+    margin-bottom: 22px;
+}
+
+.cta-three__desc {
+    color: #fff;
+    font-size: 15px;
+    line-height: 1.85;
+    margin-bottom: 30px;
+}
+
+/* Right col */
+.cta-three__img-col {
+    width: 50%;
+    flex-shrink: 0;
+    position: relative;
+    align-self: stretch;
+    overflow: hidden;
+}
+
+.cta-three__group-img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 110%;
+    width: auto;
+    max-width: none;
+    object-fit: contain;
+}
+
+/* Responsive CSS for whole site */
+
+@media (max-width: 1025px) {
+  .main-nav-one__infos-email {
+    display: none !important;
+  }
+  .main-nav-one__infos-phone{
+    display: none !important;
+  }
+  .course-container {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        gap: 40px !important;
+    }
+
+    .course-container .block-title {
+        flex: 1 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .course-container .text-block {
+        flex: 1 !important;
+        margin-bottom: 0 !important;
+    }
+    .course-one__single{
+      width: 82% !important;
+      height: auto !important;
+    }
+    .block-title h3 {
+      font-size: 30px !important;
+      padding: 0 0 0 10px !important;
+    }
+    .cta-three__left {
+        width: 55%;
+        padding: 50px 40px 50px 15px;
+    }
+
+    .cta-three__right {
+        width: 50%;
+        margin: 20px !important;
+    }
+
+    .cta-three__title {
+        display: none;
+    }
+    .cta-four .row {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+    }
+
+    .cta-four .col-xl-6 {
+        flex: 0 0 50% !important;
+        max-width: 50% !important;
+    }
+}
+
+@media (max-width: 786px) {
+    .m-0 {
+        font-size: 15px !important;
+    }
+
+    .course-container {
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+
+    .course-container .block-title,
+    .course-container .text-block {
+        flex: unset !important;
+        width: 100% !important;
+    }
+
+    .course-one__image-inner {
+        height: 250px !important;
+        background: transparent !important;
+    }
+
+    .course-one__image-inner img {
+        height: 250px !important;
+        object-fit: contain !important;
+        background: transparent !important;
+    }
+
+    .cta-three__flex-wrap {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .cta-three__text-col {
+        width: 100%;
+        padding: 40px 20px;
+    }
+
+    .cta-three__img-col {
+       display: none;
+    }
+
+    .cta-three__group-img {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+    }
 }

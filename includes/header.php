@@ -452,13 +452,15 @@
                     <a class="main-nav-one__infos-email" href="<?php echo $emailHref; ?>"
                         style="display:inline-flex; align-items:center; gap:6px;">
                         <img src="<?php echo $base; ?>/assets/images/mail.png" alt="Email"
-                            style="width:32px; height:32px; object-fit:contain;" />
+                            style="width:32px; height:32px; object-fit:contain;"
+                            onerror="this.parentElement.style.display='none'" />
                         <span class="nav-info-text"><?php echo htmlspecialchars($emailDisplay, ENT_QUOTES, 'UTF-8'); ?></span>
                     </a>
                     <a class="main-nav-one__infos-phone" href="<?php echo $phoneHref; ?>"
                         style="display:inline-flex; align-items:center; gap:6px;">
                         <img src="<?php echo $base; ?>/assets/images/phn.png" alt="Phone"
-                            style="width:32px; height:32px; object-fit:contain;" />
+                            style="width:32px; height:32px; object-fit:contain;"
+                            onerror="this.parentElement.style.display='none'" />
                         <span class="nav-info-text"><?php echo htmlspecialchars($phoneDisplay, ENT_QUOTES, 'UTF-8'); ?></span>
                     </a>
                 </div>
