@@ -45,19 +45,119 @@ include __DIR__ . '/includes/header.php';
 </div> -->
 
 <!-- Hero Video -->
-<div class="hero-video__wrapper">
-    <!-- Background Video -->
+<!-- <div class="hero-video__wrapper">
     <video class="hero-video__video" autoplay muted loop playsinline>
         <source src="<?php echo $base; ?>/assets/images/background/hero.mp4" type="video/mp4" />
         <source src="<?php echo $base; ?>/assets/images/background/hero.webm" type="video/webm" />
         <img src="<?php echo $base; ?>/assets/images/background/slide-bg-1-1.jpg" alt="Wavicle Pools" class="hero-video__fallback" />
     </video>
-    
-
-    <!-- WhatsApp button — bottom center -->
     <div class="hero-video__wa-wrap">
         <a href="https://wa.me/919560838375" target="_blank" rel="noopener" class="hero-video__wa-link">
             <img src="<?php echo $base; ?>/assets/images/chat_whatsapp.png" alt="Chat on WhatsApp" class="hero-video__wa-img" />
+        </a>
+    </div>
+</div> -->
+
+<!-- Hero Banner -->
+<!-- <div style="position:relative; width:100%; height:100vh; min-height:500px; overflow:hidden; z-index:0; display:block;">
+    <video autoplay muted loop playsinline style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:1;">
+        <source src="<?php echo $base; ?>/assets/images/background/hero.mp4" type="video/mp4" />
+    </video>
+    <div style="position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(5,27,53,0.45); z-index:2;"></div>
+    <div style="position:absolute; bottom:50px; left:50%; transform:translateX(-50%); z-index:3; text-align:center;">
+        <a href="https://wa.me/919560838375" target="_blank" rel="noopener">
+            <img src="<?php echo $base; ?>/assets/images/chat_whatsapp.png" alt="Chat on WhatsApp" style="height:80px; width:auto; max-width:220px; display:block;" />
+        </a>
+    </div>
+</div> -->
+
+<!-- Hero Banner -->
+<style>
+    .wv-inline-hero {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        min-height: 500px;
+        overflow: hidden;
+        z-index: 0;
+        display: block;
+    }
+
+    .wv-inline-hero video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+    }
+
+    .wv-inline-hero__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+
+    .wv-inline-hero__btn {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 3;
+    }
+
+    .wv-inline-hero__btn img {
+        height: 80px;
+        width: auto;
+        max-width: 220px;
+        display: block;
+    }
+
+    @media (max-width: 768px) {
+        .wv-inline-hero {
+            height: 56vw;
+            min-height: 280px;
+        }
+
+        .wv-inline-hero__btn img {
+            height: 40px;
+            max-width: 130px;
+        }
+
+        .wv-inline-hero__btn {
+            bottom: 15px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .wv-inline-hero {
+            height: 56vw;
+            min-height: 220px;
+        }
+
+        .wv-inline-hero__btn img {
+            height: 60px;
+            max-width: 170px;
+        }
+
+        .wv-inline-hero__btn {
+            bottom: 10px;
+        }
+    }
+</style>
+<div class="wv-inline-hero">
+    <video autoplay muted loop playsinline>
+        <source src="<?php echo $base; ?>/assets/images/background/hero.mp4" type="video/mp4" />
+    </video>
+    <div class="wv-inline-hero__overlay"></div>
+    <div class="wv-inline-hero__btn">
+        <a href="https://wa.me/919560838375" target="_blank" rel="noopener">
+            <img src="<?php echo $base; ?>/assets/images/chat_whatsapp.png" alt="Chat on WhatsApp" />
         </a>
     </div>
 </div>

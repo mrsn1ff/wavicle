@@ -85,7 +85,7 @@ a:focus {
   margin: 0 auto;
   width: 100%;
   min-width: 300px;
-  overflow: hidden;
+  overflow: visible;
 }
 
 @media (min-width: 1200px) {
@@ -1679,7 +1679,7 @@ a:focus {
   position: absolute;
   bottom: 0;
   right: 10%;
-  z-index: 0;
+  z-index: 0 !important;
   -webkit-perspective: 500px;
   perspective: 500px;
   -webkit-animation: footerTree 5s ease-in infinite;
@@ -1690,7 +1690,7 @@ a:focus {
   position: absolute;
   left: 7%;
   bottom: 49%;
-  z-index: 0;
+  z-index: 0 !important;
   -webkit-perspective: 100px;
   perspective: 100px;
   -webkit-animation: footerFish 5s linear infinite;
@@ -1712,7 +1712,7 @@ a:focus {
   position: absolute;
   top: 20%;
   right: 12%;
-  z-index: 11;
+  z-index: 0 !important;
   -webkit-perspective: 250px;
   perspective: 250px;
   -webkit-animation: footerFish 5s linear infinite 2s;
@@ -4157,6 +4157,7 @@ a:focus {
 .course-brand__wrapper .site-footer__fish-1 {
   bottom: 25%;
   left: 3%;
+  z-index: 0 !important;
 }
 
 .course-brand__wrapper .site-footer__tree-1 {
@@ -6157,8 +6158,14 @@ a:focus {
 
 
 @media (max-width: 991px) {
-    .service-carousel-prev { left: 10px; }
-    .service-carousel-next { right: 10px; }
+    .service-carousel-prev { 
+      /* left: 10px; */
+      display: none;
+     }
+    .service-carousel-next {
+       /* right: 10px; */
+       display: none;
+     }
 }
 
 /* Our Stats */
@@ -6336,6 +6343,55 @@ a:focus {
     max-width: 220px;
 }
 
+/*--------------------------------------------------------------
+ # WV Hero New
+--------------------------------------------------------------*/
+.wv-hero-new {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.wv-hero-new__video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.wv-hero-new__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 27, 53, 0.45);
+    z-index: 2;
+}
+
+.wv-hero-new__btn {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    text-align: center;
+}
+
+.wv-hero-new__wa {
+    height: 80px;
+    width: auto;
+    max-width: 220px;
+    display: block;
+}
+
 /* Responsive CSS for whole site */
 
 @media (max-width: 1025px) {
@@ -6429,6 +6485,15 @@ a:focus {
         height: 80px;
         max-width: 180px;
     }
+
+    /* WV Hero Section */
+    .wv-hero-new {
+        height: 70vh;
+        min-height: 450px;
+    }
+    .wv-hero-new__wa {
+        height: 65px;
+    }
 }
 
 @media (max-width: 786px) {
@@ -6479,6 +6544,20 @@ a:focus {
         height: 100%;
         width: 100%;
         object-fit: contain;
+    }
+
+    /* WV Hero Section */
+ .wv-hero-new {
+        height: auto;
+        min-height: 300px;
+        aspect-ratio: 16/9;
+    }
+    .wv-hero-new__wa {
+        height: 45px;
+        max-width: 140px;
+    }
+    .wv-hero-new__btn {
+        bottom: 20px;
     }
 }
 
@@ -6741,4 +6820,19 @@ a:focus {
     .hero-video__wa-wrap {
         bottom: 30px;
     }
+
+    /* WV Hero Section */
+    .wv-hero-new {
+        height: auto;
+        min-height: 220px;
+        aspect-ratio: 16/9;
+    }
+    .wv-hero-new__wa {
+        height: 35px;
+        max-width: 110px;
+    }
+    .wv-hero-new__btn {
+        bottom: 15px;
+    }
+    
 }

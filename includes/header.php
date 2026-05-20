@@ -359,6 +359,7 @@
 
             .main-nav-one__infos {
                 gap: 8px;
+                display: none;
             }
         }
 
@@ -411,6 +412,11 @@
 
             .wv-stat-number {
                 font-size: 28px;
+            }
+
+            .cta-two__moc {
+                max-width: 130px !important;
+                margin: 50px 0 0 20px !important;
             }
         }
     </style>
