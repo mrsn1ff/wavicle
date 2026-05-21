@@ -1109,12 +1109,28 @@ $homepageProducts = $pdo->query(
 
 <!-- Sponsor Banner -->
 <section class="brand-one brand-one__home-one" style="padding:0; overflow:hidden;">
+    <!-- Desktop Image -->
     <img src="<?php echo $base; ?>/assets/images/sponser.png"
         alt="Sponsor"
         style="width:100%; display:block; transition: transform 0.4s ease;"
+        class="wv-sponsor-desktop"
+        onmouseover="this.style.transform='scale(1.03)'"
+        onmouseout="this.style.transform='scale(1)'" />
+    <!-- Mobile Image -->
+    <img src="<?php echo $base; ?>/assets/images/sponser_phn.png"
+        alt="Sponsor"
+        style="width:100%; display:none; transition: transform 0.4s ease;"
+        class="wv-sponsor-mobile"
         onmouseover="this.style.transform='scale(1.03)'"
         onmouseout="this.style.transform='scale(1)'" />
 </section>
+
+<style>
+    @media (max-width: 768px) {
+        .wv-sponsor-desktop { display: none !important; }
+        .wv-sponsor-mobile { display: block !important; }
+    }
+</style>
 
 <!-- Blog — Dynamic from DB -->
 <?php $homeBlogs = $pdo->query('SELECT * FROM blogs WHERE status=1 ORDER BY created_at DESC LIMIT 6')->fetchAll(PDO::FETCH_ASSOC); ?>

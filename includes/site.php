@@ -26,7 +26,8 @@ $emailDisplay   = 'waviclepools@gmail.com';
 $emailHref      = 'mailto:waviclepools@gmail.com';
 $addressDisplay = 'New Delhi, India';
 $addressHref    = 'https://maps.google.com/?q=New+Delhi,+India';
-$social         = ['facebook' => '#', 'twitter' => '#', 'pinterest' => '#', 'instagram' => '#'];
+$social         = ['facebook' => 'https://www.instagram.com/waviclepools/', 'youtube' => 'https://www.youtube.com/@waviclepools', 'pinterest' => '#', 'instagram' => 'https://www.instagram.com/waviclepools/
+'];
 
 // ─── DB ───────────────────────────────────────────────────────
 if (!isset($pdo)) require_once __DIR__ . '/../admin/includes/db.php';

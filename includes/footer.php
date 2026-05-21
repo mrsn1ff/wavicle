@@ -253,7 +253,7 @@ $totalBlogs = (int)$pdo->query("SELECT COUNT(*) FROM blogs WHERE status=1")->fet
         <p class="side-menu__block__copy">&copy; <?php echo date('Y'); ?> <a href="<?php echo $base; ?>/index.php"><?php echo htmlspecialchars($siteName, ENT_QUOTES, 'UTF-8'); ?></a> - All rights reserved.</p>
         <div class="side-menu__social">
             <a href="<?php echo $social['facebook']; ?>"><i class="fab fa-facebook-f"></i></a>
-            <a href="<?php echo $social['twitter']; ?>"><i class="fab fa-youtube"></i></a>
+            <a href="<?php echo $social['youtube']; ?>"><i class="fab fa-youtube"></i></a>
             <a href="<?php echo $social['instagram']; ?>"><i class="fab fa-instagram"></i></a>
             <a href="https://wa.me/919560838375" target="_blank"><i class="fab fa-whatsapp"></i></a>
         </div>
