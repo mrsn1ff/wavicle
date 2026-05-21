@@ -17,7 +17,7 @@ $base = rtrim($_ENV['SITE_BASE'] ?? '/wavicle', '/');
 
 // ─── Site Config ──────────────────────────────────────────────
 $siteName       = 'Wavicle';
-$logoPath       = $base . '/assets/images/WAVICLE POOLS LOGO.png';
+$logoPath       = $base . '/assets/images/new_logo.png';
 $logoDark       = $base . '/assets/images/wavicle_white.png';
 $logoLight      = $base . '/assets/images/wavicle_white.png';
 $phoneDisplay   = '+91 9560838375';

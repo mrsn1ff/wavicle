@@ -269,10 +269,8 @@ include __DIR__ . '/includes/header.php';
         }
 
         .ci-img-col img {
-            /* min-height: 280px;
-            max-height: 380px; */
             width: 100%;
-        height: 90%;
+            height: 85%;
         }
 
         .ci-desc-col {
@@ -287,8 +285,7 @@ include __DIR__ . '/includes/header.php';
 
     @media(max-width:576px) {
         .ci-desc-col {
-            /* padding: 24px 20px; */
-            padding: 0 !important;
+            padding: 15px !important;
         }
 
         .ci-item-title {
@@ -299,6 +296,7 @@ include __DIR__ . '/includes/header.php';
         .ci-rel-grid {
             grid-template-columns: 1fr;
         }
+        
     }
 </style>
 

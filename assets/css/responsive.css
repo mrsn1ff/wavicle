@@ -559,8 +559,7 @@
     flex-direction: column;
   }
   .video-two__box img {
-    max-width: 100%;
-    padding:15px;
+    display: none;
   }
   .about-three__image-content {
     right: -10px;
@@ -568,6 +567,9 @@
   .about-three__image-content::before {
     width: 10px;
     height: 15px;
+  }
+  .video-two__box{
+    display: none;
   }
 }
 

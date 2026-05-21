@@ -192,7 +192,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label class="form-label">Email Address</label>
                 <div class="form-input-wrap">
                     <i class="fa fa-envelope"></i>
-                    <input type="email" name="email" class="form-input" placeholder="admin@wavicle.com"
+                    <input type="email" name="email" class="form-input" placeholder="Enter your email"
                         value="<?php echo htmlspecialchars($_POST['email'] ?? '', ENT_QUOTES, 'UTF-8'); ?>" required autofocus />
                 </div>
             </div>
@@ -205,12 +205,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
             <button type="submit" class="login-btn">Sign In &nbsp;<i class="fa fa-arrow-right"></i></button>
         </form>
-
-        <div class="login-hint">
-            Default credentials:<br />
-            Email: <strong>admin@wavicle.com</strong> &nbsp;|&nbsp; Password: <strong>Admin@1234</strong><br />
-            <small>Change your password after first login.</small>
-        </div>
     </div>
 </div>
 </body>

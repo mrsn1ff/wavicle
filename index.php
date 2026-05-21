@@ -376,21 +376,7 @@ $dbServiceCats = $pdo->query("SELECT * FROM catalog_categories WHERE type='servi
 </section>
 
 
-<!-- /.course-one__title -->
-<!-- Courses Title -->
-<!-- <section class="course-one__title">
-    <div class="course-one__bg" style="background-image: url(assets/images/shapes/water-wave-bg.png)"></div>
-    <div class="container course-co      <div class="block-title text-left">
-            <img src="assets/images/shapes/sec-line-1.png" alt="" />
-            <p class="text-uppercase">Our Products</p>ntainer">
-  
-            <h3 class="text-uppercase quality-pool-h3">Quality Swimming Pool Equipment</h3>
-        </div>
-        <div class="text-block">
-            <p class="m-0">At Wavicle Pools, we manufacture and supply premium swimming pool equipment built for durability, performance, and elegance. From filtration systems to pool fittings, every product is engineered to meet the highest industry standards — ensuring your pool stays clean, safe, and luxurious all year round.</p>
-        </div>
-    </div>
-</section> -->
+
 
 <!-- Courses Title -->
 <style>
@@ -508,6 +494,7 @@ $dbServiceCats = $pdo->query("SELECT * FROM catalog_categories WHERE type='servi
 
         .wv-products-container {
             flex-direction: column;
+            gap: 0;
             padding: 0 0 0 20px;
         }
     }
