@@ -352,6 +352,17 @@
             text-overflow: ellipsis !important;
         }
 
+        .main-nav__main-navigation .main-nav__navigation-box>li ul>li>a {
+            word-break: normal !important;
+            white-space: nowrap !important;
+            width: max-content !important;
+        }
+
+        .main-nav__main-navigation .main-nav__navigation-box>li ul {
+            width: auto !important;
+            min-width: 220px !important;
+        }
+
         @media (max-width: 991px) {
             .nav-info-text {
                 display: none;

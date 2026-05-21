@@ -214,12 +214,11 @@ $dbServiceCats = $pdo->query("SELECT * FROM catalog_categories WHERE type='servi
             <a class="service-one__carousel-btn-right" href="#"><i class="fa fa-angle-right"></i></a>
         </div>
     </div>
-    <a href="#" class="service-carousel-prev"><i class="fa fa-angle-left"></i></a>
-    <a href="#" class="service-carousel-next"><i class="fa fa-angle-right"></i></a>
+
 </section><!-- /.service-one -->
 
 <!-- Our Stats -->
-<section class="funfact-one funfact-one__home-one">
+<!-- <section class="funfact-one funfact-one__home-one">
     <div class="container">
         <div class="funfact-one__title">Our Stats</div>
         <div class="inner-container">
@@ -246,24 +245,287 @@ $dbServiceCats = $pdo->query("SELECT * FROM catalog_categories WHERE type='servi
             </div>
         </div>
     </div>
-</section><!-- /.funfact-one --><!-- /.funfact-one -->
-<!-- /.funfact-one --><!-- /.funfact-one -->
+</section> -->
+
+<!-- Our Stats -->
+<style>
+    .wv-stats-container {
+        background-color: #051b35;
+        padding: 60px 80px;
+        position: relative;
+        z-index: 22;
+        margin-bottom: -141.5px;
+    }
+
+    .wv-stats-row-inline {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .wv-stats-divider-inline {
+        width: 1px;
+        height: 45px;
+        background: rgba(255, 255, 255, 0.25);
+        flex-shrink: 0;
+    }
+
+    .wv-stats-item-inline {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .wv-stats-number {
+        font-size: 44px;
+        font-weight: 800;
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
+        line-height: 1;
+        white-space: nowrap;
+    }
+
+    .wv-stats-label {
+        font-size: 11px;
+        font-weight: 700;
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        line-height: 1.5;
+    }
+
+    /* Tablet */
+    @media (max-width: 1024px) {
+        .wv-stats-container {
+            padding: 40px 40px;
+        }
+
+        .wv-stats-number {
+            font-size: 36px;
+        }
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+        .wv-stats-container {
+            padding: 30px 60px;
+            margin-bottom: 0;
+        }
+
+        .wv-stats-row-inline {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px 10px;
+            padding: 0;
+        }
+
+        .wv-stats-divider-inline {
+            display: none;
+        }
+
+        .wv-stats-number {
+            font-size: 32px;
+        }
+    }
+
+    /* Small Mobile */
+    @media (max-width: 480px) {
+        .wv-stats-container {
+            padding: 20px 15px;
+        }
+
+        .wv-stats-number {
+            font-size: 28px;
+        }
+
+        .wv-stats-label {
+            font-size: 10px;
+        }
+    }
+</style>
+
+<section class="funfact-one funfact-one__home-one">
+    <div class="container">
+        <div class="funfact-one__title">Our Stats</div>
+        <div class="wv-stats-container">
+            <div class="wv-stats-row-inline">
+                <div class="wv-stats-item-inline">
+                    <div class="wv-stats-number"><span class="counter">5</span>+</div>
+                    <div class="wv-stats-label">Years Of<br />Experience</div>
+                </div>
+                <div class="wv-stats-divider-inline"></div>
+                <div class="wv-stats-item-inline">
+                    <div class="wv-stats-number"><span class="counter">10</span>+</div>
+                    <div class="wv-stats-label">Awards<br />Won</div>
+                </div>
+                <div class="wv-stats-divider-inline"></div>
+                <div class="wv-stats-item-inline">
+                    <div class="wv-stats-number"><span class="counter">200</span>+</div>
+                    <div class="wv-stats-label">Clients<br />Served</div>
+                </div>
+                <div class="wv-stats-divider-inline"></div>
+                <div class="wv-stats-item-inline">
+                    <div class="wv-stats-number"><span class="counter">150</span>+</div>
+                    <div class="wv-stats-label">States<br />Served</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <!-- /.course-one__title -->
 <!-- Courses Title -->
-<section class="course-one__title">
+<!-- <section class="course-one__title">
     <div class="course-one__bg" style="background-image: url(assets/images/shapes/water-wave-bg.png)"></div>
-    <div class="container course-container">
-        <div class="block-title text-left">
+    <div class="container course-co      <div class="block-title text-left">
             <img src="assets/images/shapes/sec-line-1.png" alt="" />
-            <p class="text-uppercase">Our Products</p>
+            <p class="text-uppercase">Our Products</p>ntainer">
+  
             <h3 class="text-uppercase quality-pool-h3">Quality Swimming Pool Equipment</h3>
         </div>
         <div class="text-block">
             <p class="m-0">At Wavicle Pools, we manufacture and supply premium swimming pool equipment built for durability, performance, and elegance. From filtration systems to pool fittings, every product is engineered to meet the highest industry standards — ensuring your pool stays clean, safe, and luxurious all year round.</p>
         </div>
     </div>
-</section><!-- /.course-one__title -->
+</section> -->
+
+<!-- Courses Title -->
+<style>
+    .wv-products-section {
+        background-color: #edf2f5;
+        position: relative;
+        padding-top: 60px;
+        padding-bottom: 375px;
+    }
+
+    .wv-products-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        opacity: 0.4;
+    }
+
+    .wv-products-container {
+        display: flex;
+        padding: 110px 60px 0 60px;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+        position: relative;
+    }
+
+    .wv-products-left {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .wv-products-right {
+        flex: 0 0 50%;
+        max-width: 50%;
+        padding-top: 30px;
+    }
+
+    .wv-products-h3 {
+        font-size: 50px !important;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+        color: #051b35;
+        text-transform: uppercase;
+        margin: 0;
+        line-height: 1.2;
+    }
+
+    .wv-products-p {
+        font-size: 20px;
+        line-height: 1.8;
+        color: #838a93;
+        margin: 0;
+    }
+
+    /* Tablet */
+    @media (max-width: 1024px) {
+        .wv-products-section {
+            padding-bottom: 375px;
+        }
+
+        .wv-products-h3 {
+            font-size: 36px !important;
+        }
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+        .wv-products-section {
+            padding-top: 40px;
+            padding-bottom: 375px;
+        }
+
+        .wv-products-container {
+            flex-direction: column;
+            padding: 0 0 0 65px;
+        }
+
+        .wv-products-left {
+            flex: unset;
+            max-width: 100%;
+            width: 100%;
+        }
+
+        .wv-products-right {
+            flex: unset;
+            max-width: 100%;
+            width: 100%;
+            padding-top: 0;
+        }
+
+        .wv-products-h3 {
+            font-size: 28px !important;
+        }
+
+        .wv-products-p {
+            font-size: 15px;
+        }
+    }
+
+    /* Small Mobile */
+    @media (max-width: 480px) {
+        .wv-products-section {
+            padding-top: 30px;
+            padding-bottom: 375px;
+        }
+
+        .wv-products-h3 {
+            font-size: 24px !important;
+        }
+
+        .wv-products-container {
+            flex-direction: column;
+            padding: 0 0 0 20px;
+        }
+    }
+</style>
+
+<section class="wv-products-section">
+    <div class="wv-products-bg" style="background-image: url(assets/images/shapes/water-wave-bg.png)"></div>
+    <div class="container wv-products-container">
+        <div class="wv-products-left block-title text-left">
+            <img src="assets/images/shapes/sec-line-1.png" alt="" />
+            <p class="text-uppercase">Our Products</p>
+            <h3 class="wv-products-h3">Quality Swimming Pool Equipment</h3>
+        </div>
+        <div class="wv-products-right">
+            <p class="wv-products-p">At Wavicle Pools, we manufacture and supply premium swimming pool equipment built for durability, performance, and elegance. From filtration systems to pool fittings, every product is engineered to meet the highest industry standards — ensuring your pool stays clean, safe, and luxurious all year round.</p>
+        </div>
+    </div>
+</section>
 <!-- Courses Carousel — Homepage Featured Products -->
 <?php
 // Fetch first product from each category for homepage carousel
@@ -433,12 +695,12 @@ $homepageProducts = $pdo->query(
 </section> -->
 
 <!-- CTA Three -->
-<section class="cta-three cta-three--section">
+<!-- <section class="cta-three cta-three--section">
     <div class="container cta-three--container">
         <div class="cta-three__title">Get Consultation!</div>
         <div class="cta-three__flex-wrap">
 
-            <!-- Left Text -->
+          
             <div class="cta-three__text-col">
                 <div class="block-title cta-three__block-title">
                     <p class="text-uppercase">From Our Expert Technicians</p>
@@ -449,13 +711,149 @@ $homepageProducts = $pdo->query(
                 </p>
                 <a href="contact.php" class="thm-btn cta-three__btn">Get Consultation</a>
             </div>
-
-            <!-- Right Image -->
+            
             <div class="cta-three__img-col">
                 <img src="assets/images/group.png" alt="Expert Team"
                     class="cta-three__group-img wow fadeInRight" data-wow-duration="1500ms" />
             </div>
 
+        </div>
+    </div>
+</section> -->
+
+<!-- CTA Three -->
+<style>
+    .wv-cta3-section {
+        overflow: hidden;
+        position: relative;
+        background-color: #0e3c7d;
+    }
+
+    .wv-cta3-wrap {
+        display: flex;
+        align-items: center;
+        min-height: 420px;
+        position: relative;
+    }
+
+    .wv-cta3-left {
+        width: 55%;
+        padding: 50px 60px;
+        position: relative;
+        z-index: 2;
+        flex-shrink: 0;
+    }
+
+    .wv-cta3-left p.text-uppercase {
+        color: #fff;
+        font-size: 14px;
+        letter-spacing: 0.4em;
+        margin-bottom: 10px;
+    }
+
+    .wv-cta3-left h3 {
+        color: #fff;
+        font-size: 60px;
+        font-weight: bold;
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        margin-bottom: 22px;
+        line-height: 1.1;
+    }
+
+    .wv-cta3-desc {
+        color: #fff;
+        font-size: 15px;
+        line-height: 1.85;
+        margin-bottom: 30px;
+        opacity: 0.9;
+    }
+
+    .wv-cta3-right {
+        width: 45%;
+        flex-shrink: 0;
+        position: relative;
+        align-self: stretch;
+        overflow: hidden;
+    }
+
+    .wv-cta3-img {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 110%;
+        width: auto;
+        max-width: none;
+        object-fit: contain;
+    }
+
+    /* Tablet */
+    @media (max-width: 1024px) {
+        .wv-cta3-left {
+            width: 60%;
+            padding: 30px 5px;
+        }
+
+        .wv-cta3-right {
+            width: 47%;
+        }
+
+        .wv-cta3-left h3 {
+            font-size: 46px;
+        }
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+        .wv-cta3-wrap {
+            flex-direction: column;
+            min-height: auto;
+        }
+
+        .wv-cta3-left {
+            width: 100%;
+            padding: 40px 20px;
+        }
+
+        .wv-cta3-right {
+            display: none;
+        }
+
+        .wv-cta3-left h3 {
+            font-size: 36px;
+        }
+    }
+
+    /* Small Mobile */
+    @media (max-width: 480px) {
+        .wv-cta3-left {
+            padding: 30px 15px;
+        }
+
+        .wv-cta3-left h3 {
+            font-size: 28px;
+        }
+    }
+</style>
+
+<section class="wv-cta3-section">
+    <div class="container">
+        <div class="wv-cta3-wrap">
+            <!-- Left Text -->
+            <div class="wv-cta3-left">
+                <div class="block-title" style="margin-bottom:22px;">
+                    <p class="text-uppercase">From Our Expert Technicians</p>
+                    <h3 class="text-uppercase">24x7 <br> Available</h3>
+                </div>
+                <p class="wv-cta3-desc">
+                    Wavicle provides professional support around the clock. Our expert technicians are always ready to assist you with installation, maintenance and consultation.
+                </p>
+                <a href="contact.php" class="thm-btn" style="margin-top:10px;">Get Consultation</a>
+            </div>
+            <!-- Right Image -->
+            <div class="wv-cta3-right">
+                <img src="assets/images/group.png" alt="Expert Team" class="wv-cta3-img wow fadeInRight" data-wow-duration="1500ms" />
+            </div>
         </div>
     </div>
 </section>
@@ -487,7 +885,7 @@ $homepageProducts = $pdo->query(
 </div><!-- /.cta-three__feature -->
 
 <!-- About / CTA Four -->
-<section class="cta-four">
+<!-- <section class="cta-four">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-xl-6">
@@ -517,7 +915,208 @@ $homepageProducts = $pdo->query(
             </div>
         </div>
     </div>
-</section><!-- /.cta-four -->
+</section> -->
+
+<!-- About / CTA Four -->
+<style>
+    .wv-cta4-section {
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
+
+    .wv-cta4-row {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .wv-cta4-img-col {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .wv-cta4-content-col {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .wv-cta4-image {
+        position: relative;
+    }
+
+    .wv-cta4-image>img {
+        width: 100%;
+        -webkit-clip-path: polygon(50% 0%, 85% 0, 100% 15%, 100% 100%, 0 100%, 0 0);
+        clip-path: polygon(50% 0%, 85% 0, 100% 15%, 100% 100%, 0 100%, 0 0);
+    }
+
+    .wv-cta4-image-content {
+        width: 100%;
+        max-width: 300px;
+        height: 100%;
+        max-height: 415px;
+        background-color: #59b5e8;
+        position: absolute;
+        top: calc(50% - 207.5px);
+        left: calc(50% - 150px);
+        -webkit-clip-path: polygon(50% 0%, 80% 0, 100% 20%, 100% 100%, 0 100%, 0 0);
+        clip-path: polygon(50% 0%, 80% 0, 100% 20%, 100% 100%, 0 100%, 0 0);
+        padding-left: 60px;
+        padding-right: 60px;
+        padding-top: 65px;
+    }
+
+    .wv-cta4-image-content::before {
+        content: "";
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        right: 8px;
+        bottom: 8px;
+        background-color: #fff;
+        -webkit-clip-path: polygon(50% 0%, 80% 0, 100% 20%, 100% 100%, 0 100%, 0 0);
+        clip-path: polygon(50% 0%, 80% 0, 100% 20%, 100% 100%, 0 100%, 0 0);
+    }
+
+    .wv-cta4-image-content i {
+        position: relative;
+        font-size: 94px;
+        color: #0e3c7d;
+        display: block;
+    }
+
+    .wv-cta4-image-content p {
+        position: relative;
+        margin: 0;
+        color: #59b5e8;
+        font-size: 32px;
+        font-weight: bold;
+        line-height: 1em;
+        margin-top: 10px;
+    }
+
+    .wv-cta4-image-content h3 {
+        margin: 0;
+        position: relative;
+        font-weight: 400;
+        color: #051b35;
+        font-size: 24px !important;
+        line-height: 1.4 !important;
+        text-transform: uppercase;
+        font-family: 'Montserrat', sans-serif;
+        margin-top: 5px;
+    }
+
+    .wv-cta4-h3 {
+        font-size: 45px !important;
+        line-height: 1.2 !important;
+        margin-bottom: 20px !important;
+        text-transform: uppercase;
+        color: #051b35;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+    }
+
+    .wv-cta4-p {
+        text-align: justify;
+        line-height: 1.9;
+        margin-bottom: 28px;
+        color: #838a93;
+        font-size: 18px;
+    }
+
+    /* Tablet */
+    @media (max-width: 1024px) {
+        .wv-cta4-row {
+            gap: 30px;
+        }
+
+        .wv-cta4-h3 {
+            font-size: 34px !important;
+        }
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+        .wv-cta4-section {
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+
+        .wv-cta4-row {
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .wv-cta4-img-col {
+            flex: unset;
+            max-width: 100%;
+            width: 100%;
+        }
+
+        .wv-cta4-content-col {
+            flex: unset;
+            max-width: 100%;
+            width: 100%;
+        }
+
+        .wv-cta4-h3 {
+            font-size: 26px !important;
+        }
+        .wv-cta4-image-content{
+            display:none;
+        }
+    }
+
+    /* Small Mobile */
+    @media (max-width: 480px) {
+        .wv-cta4-section {
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+
+        .wv-cta4-h3 {
+            font-size: 22px !important;
+        }
+
+        .wv-cta4-p {
+            font-size: 15px;
+        }
+        .wv-cta4-image-content{
+            display:none;
+        }
+    }
+</style>
+
+<section class="wv-cta4-section">
+    <div class="container">
+        <div class="wv-cta4-row">
+            <div class="wv-cta4-img-col">
+                <div class="wv-cta4-image wow fadeInLeft" data-wow-duration="1500ms">
+                    <img src="assets/images/resources/cta-2-1.jpg" alt="" />
+                    <div class="wv-cta4-image-content">
+                        <i class="scubo-icon-scuba-diving"></i>
+                        <p>5+</p>
+                        <h3>Years of Experience</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="wv-cta4-content-col">
+                <div class="block-title text-left">
+                    <img src="assets/images/shapes/sec-line-1.png" alt="" />
+                    <p class="text-uppercase" style="margin-bottom:10px;">About Wavicle</p>
+                    <h3 class="wv-cta4-h3">
+                        Setting the Highest Standards for Pool Equipment
+                    </h3>
+                </div>
+                <p class="wv-cta4-p">
+                    Wavicle was founded on a passion for quality and a commitment to world-class swimming pool equipment. Our certified technicians bring years of professional experience and genuine enthusiasm to every project we deliver.
+                </p>
+                <a href="about.php" class="thm-btn">Discover More</a>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- /.cta-five -->
 

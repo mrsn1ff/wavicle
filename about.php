@@ -49,39 +49,131 @@ include __DIR__ . '/includes/header.php';
 </section>
 
 
-<!-- Fun Facts -->
+<!-- Our Stats -->
+<style>
+    .wv-stats-container {
+        background-color: #051b35;
+        padding: 60px 80px;
+        position: relative;
+        z-index: 22;
+        margin-bottom: -141.5px;
+    }
+
+    .wv-stats-row-inline {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .wv-stats-divider-inline {
+        width: 1px;
+        height: 45px;
+        background: rgba(255, 255, 255, 0.25);
+        flex-shrink: 0;
+    }
+
+    .wv-stats-item-inline {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .wv-stats-number {
+        font-size: 44px;
+        font-weight: 800;
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
+        line-height: 1;
+        white-space: nowrap;
+    }
+
+    .wv-stats-label {
+        font-size: 11px;
+        font-weight: 700;
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
+        text-transform: uppercase;
+        line-height: 1.5;
+    }
+
+    /* Tablet */
+    @media (max-width: 1024px) {
+        .wv-stats-container {
+            padding: 40px 40px;
+        }
+
+        .wv-stats-number {
+            font-size: 36px;
+        }
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+        .wv-stats-container {
+            padding: 30px 60px;
+            margin-bottom: 0;
+        }
+
+        .wv-stats-row-inline {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px 10px;
+            padding: 0;
+        }
+
+        .wv-stats-divider-inline {
+            display: none;
+        }
+
+        .wv-stats-number {
+            font-size: 32px;
+        }
+    }
+
+    /* Small Mobile */
+    @media (max-width: 480px) {
+        .wv-stats-container {
+            padding: 20px 15px;
+        }
+
+        .wv-stats-number {
+            font-size: 28px;
+        }
+
+        .wv-stats-label {
+            font-size: 10px;
+        }
+    }
+</style>
+
 <section class="funfact-one funfact-one__home-one">
     <div class="container">
-        <div class="funfact-one__title">Our Numbers</div>
-        <!-- Our Stats -->
-        <section class="funfact-one funfact-one__home-one">
-            <div class="container">
-                <div class="funfact-one__title">Our Stats</div>
-                <div class="inner-container">
-                    <div class="wv-stats-row">
-                        <div class="wv-stat-item">
-                            <div class="wv-stat-number"><span class="counter">5</span>+</div>
-                            <div class="wv-stat-label">Years Of<br />Experience</div>
-                        </div>
-                        <div class="wv-stat-divider"></div>
-                        <div class="wv-stat-item">
-                            <div class="wv-stat-number"><span class="counter">10</span>+</div>
-                            <div class="wv-stat-label">Awards<br />Won</div>
-                        </div>
-                        <div class="wv-stat-divider"></div>
-                        <div class="wv-stat-item">
-                            <div class="wv-stat-number"><span class="counter">200</span>+</div>
-                            <div class="wv-stat-label">Clients<br />Served</div>
-                        </div>
-                        <div class="wv-stat-divider"></div>
-                        <div class="wv-stat-item">
-                            <div class="wv-stat-number"><span class="counter">150</span>+</div>
-                            <div class="wv-stat-label">States<br />Served</div>
-                        </div>
-                    </div>
+        <div class="funfact-one__title">Our Stats</div>
+        <div class="wv-stats-container">
+            <div class="wv-stats-row-inline">
+                <div class="wv-stats-item-inline">
+                    <div class="wv-stats-number"><span class="counter">5</span>+</div>
+                    <div class="wv-stats-label">Years Of<br />Experience</div>
+                </div>
+                <div class="wv-stats-divider-inline"></div>
+                <div class="wv-stats-item-inline">
+                    <div class="wv-stats-number"><span class="counter">10</span>+</div>
+                    <div class="wv-stats-label">Awards<br />Won</div>
+                </div>
+                <div class="wv-stats-divider-inline"></div>
+                <div class="wv-stats-item-inline">
+                    <div class="wv-stats-number"><span class="counter">200</span>+</div>
+                    <div class="wv-stats-label">Clients<br />Served</div>
+                </div>
+                <div class="wv-stats-divider-inline"></div>
+                <div class="wv-stats-item-inline">
+                    <div class="wv-stats-number"><span class="counter">150</span>+</div>
+                    <div class="wv-stats-label">States<br />Served</div>
                 </div>
             </div>
-        </section>
+        </div>
     </div>
 </section>
 

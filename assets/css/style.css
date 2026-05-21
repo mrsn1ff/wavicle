@@ -85,7 +85,7 @@ a:focus {
   margin: 0 auto;
   width: 100%;
   min-width: 300px;
-  overflow: visible;
+  overflow: hidden;
 }
 
 @media (min-width: 1200px) {
@@ -2545,20 +2545,6 @@ a:focus {
   margin-top: -1px;
 }
 
-.cta-two::before {
-  content: "";
-  width: 100%;
-  height: 32px;
-  display: block;
-  background-image: url(../images/shapes/wave-1.png);
-  background-position: center center;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 11;
-  -webkit-animation: bgSlide 20s linear infinite;
-  animation: bgSlide 20s linear infinite;
-}
 
 .cta-two__bg {
   position: absolute;
@@ -5694,7 +5680,7 @@ a:focus {
   -webkit-box-align: center;
   align-items: center;
   position: absolute;
-  left: -60.5px;
+  left: -45.5px;
   bottom: 60px;
   font-size: 20px;
   color: var(--thm-black);
@@ -6156,17 +6142,6 @@ a:focus {
 .service-carousel-prev { left: 50px; }
 .service-carousel-next { right: 50px; }
 
-
-@media (max-width: 991px) {
-    .service-carousel-prev { 
-      /* left: 10px; */
-      display: none;
-     }
-    .service-carousel-next {
-       /* right: 10px; */
-       display: none;
-     }
-}
 
 /* Our Stats */
 
